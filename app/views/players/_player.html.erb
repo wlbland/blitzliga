@@ -1,0 +1,6 @@
+  <p>
+    <%= player.first_name %> <%= player.last_name %>
+    <%= link_to 'Delete Player', [player.team, player],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+  </p>
