@@ -1,0 +1,11 @@
+
+<% unless TeamFixture.where(fixture: fixture.id).pluck == [] %>
+
+    <tr>
+      <th scope="row">1</th>
+      <td><%= TeamFixture.where(fixture: fixture.id)[0].team.name %></td>
+      <td><%= fixture.time %></td>
+      <td><%= TeamFixture.where(fixture: fixture.id)[1].team.name %></td>
+    </tr>
+
+<% end %>
