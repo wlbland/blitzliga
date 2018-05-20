@@ -1,8 +1,7 @@
 /* Main navbar */
-.navbar {
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
-  transition: all 0.3s ease;
+.navbar-blitzliga {
+  background: rgb(160,35,51);
+  // transition: all 1s ease;
   height: 70px;
   padding: 0px 30px;
   display: flex;
@@ -11,7 +10,7 @@
 }
 
 /* Logo */
-.navbar-brand img {
+.navbar-blitzliga-brand img {
   height: 50px;
 }
 
@@ -23,24 +22,24 @@
 }
 
 /* Right section */
-.navbar-right {
+.navbar-blitzliga-right {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 /* Basic navbar item */
-.navbar-item {
+.navbar-blitzliga-item {
   cursor: pointer;
   padding: 0 20px;
 }
 
 /* Navbar link */
-.navbar-link {
-  color: #616668;
-  font-size: 14px;
+.navbar-blitzliga-link {
+  color: white;
+  font-size: 16px;
 }
-.navbar-link:hover {
+.navbar-blitzliga-link:hover {
   color: #da552f;
   text-decoration: none;
 }
