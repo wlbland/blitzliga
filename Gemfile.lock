@@ -293,6 +293,9 @@ GEM
     tilt (2.0.8)
     trix (0.11.1)
       rails (> 4.1, < 5.2)
+    turbolinks (5.0.1)
+      turbolinks-source (~> 5)
+    turbolinks-source (5.1.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.8)
@@ -353,6 +356,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   trix
+  turbolinks (~> 5.0.0)
   tzinfo-data
   uglifier
   web-console (>= 3.3.0)

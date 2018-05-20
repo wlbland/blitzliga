@@ -15,7 +15,7 @@ gem 'font-awesome-sass', '~> 4.7'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
-# gem 'webpacker'
+gem 'webpacker'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'activeadmin'
@@ -33,7 +33,7 @@ gem 'carrierwave', '~> 1.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
-
+gem 'turbolinks', '~> 5.0.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
