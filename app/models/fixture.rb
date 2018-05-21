@@ -25,6 +25,7 @@ class Fixture < ApplicationRecord
     season_fixtures.distinct.pluck(:time).each do |datetime|
         unique_dates << datetime.to_date
     end
+    unique_dates.uniq!
     unique_dates.sort!
     (unique_dates.index(self.time.to_date) + 1)
   end

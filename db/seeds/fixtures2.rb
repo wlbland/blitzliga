@@ -1,5 +1,5 @@
-
-  teams = Team.create([{ name: 'Coalition'}, { name: 'ING'}, { name: 'Vverkh'}, { name: 'Desperado'}, { name: 'GreenTeam'}, { name: 'Basis'}, { name: 'Klerki'}, { name: 'Red Star'}, { name: 'British Embassy'}, { name: 'Freshmen'}, { name: 'Bro-13'}, { name: 'Anthill'}, { name: 'Moystroitel'}, { name: 'B.O.R.T.'}, { name: 'The Six Offenders'}, { name: 'Black Rocket'}, { name: 'The Unsanctionables'}, { name: 'Cavalry'}, { name: 'CREF'}, { name: 'Great Warriors'}, { name: 'FC Unifin'}, { name: 'The Galactics'}, { name: 'Happy Sundays'}])
+  active_teams = Team.create([{ name: 'Coalition'}, { name: 'Vverkh'}, { name: 'Desperado'}, { name: 'Klerki'}, { name: 'Red Star'}, { name: 'Freshmen'}, { name: 'The Unsanctionables'}, { name: 'Cavalry'}, { name: 'The Galactics'}, { name: 'Happy Sundays'}])
+  inactive_teams = Team.create([{ name: 'ING'}, { name: 'GreenTeam'}, { name: 'Basis'}, { name: 'Klerki'}, { name: 'British Embassy'}, { name: 'Bro-13'}, { name: 'Anthill'}, { name: 'Moystroitel'}, { name: 'B.O.R.T.'}, { name: 'The Six Offenders'}, { name: 'Black Rocket'}, { name: 'CREF'}, { name: 'Great Warriors'}, { name: 'FC Unifin'}, { name: 'Happy Sundays'}])
   finalists = Team.create([{name: 'Winner SF1'}, {name: 'Winner SF2'}, {name: 'Loser SF1'}, {name: 'Loser SF2'}, {name: '1st Placed'}, {name: '2nd Placed'}, {name: '3rd Placed'}, {name: '4th Placed'}])
 
 
@@ -33,10 +33,10 @@ scheduled_matches =
 
 {team_1: coalition, team_2: vverkh, time: DateTime.new(2018,5,27,10,0,0,'+03:00'), venue: spartak, season: s22},
 {team_1: red_star, team_2: cavalry, time: DateTime.new(2018,5,27,10,0,0,'+03:00'), venue: spartak, season: s22},
-{team_1: freshmen, team_2: unsanctionables, time: DateTime.new(2018,5,27,11,0,0,'+03:00'), venue: spartak, season: s21},
-{team_1: desperado, team_2: galactics, time: DateTime.new(2018,5,27,11,0,0,'+03:00'), venue: spartak, season: s21},
-{team_1: winner_1, team_2: winner_2, time: DateTime.new(2018,5,27,12,0,0,'+03:00'), venue: spartak, season: s21},
-{team_1: loser_1, team_2: loser_2, time: DateTime.new(2018,5,27,12,0,0,'+03:00'), venue: spartak, season: s21},
+{team_1: freshmen, team_2: unsanctionables, time: DateTime.new(2018,5,27,11,0,0,'+03:00'), venue: spartak, season: s21, non_league: true},
+{team_1: desperado, team_2: galactics, time: DateTime.new(2018,5,27,11,0,0,'+03:00'), venue: spartak, season: s21, non_league: true},
+{team_1: winner_1, team_2: winner_2, time: DateTime.new(2018,5,27,12,0,0,'+03:00'), venue: spartak, season: s21, non_league: true},
+{team_1: loser_1, team_2: loser_2, time: DateTime.new(2018,5,27,12,0,0,'+03:00'), venue: spartak, season: s21, non_league: true},
 
 {team_1: coalition, team_2: desperado, time: DateTime.new(2018,6,3,11,0,0,'+03:00'), venue: spartak, season: s22},
 {team_1: red_star, team_2: freshmen, time: DateTime.new(2018,6,3,11,0,0,'+03:00'), venue: spartak, season: s22},
@@ -63,16 +63,23 @@ scheduled_matches =
 {team_1: freshmen, team_2: desperado, time: DateTime.new(2018,6,24,12,0,0,'+03:00'), venue: spartak, season: s22},
 {team_1: unsanctionables, team_2: galactics, time: DateTime.new(2018,6,24,12,0,0,'+03:00'), venue: spartak, season: s22},
 
-{team_1: a_team, team_2: d_team, time: DateTime.new(2018,7,1,11,0,0,'+03:00'), venue: spartak, season: s22},
-{team_1: b_team, team_2: c_team, time: DateTime.new(2018,7,1,11,0,0,'+03:00'), venue: spartak, season: s22},
-{team_1: winner_1, team_2: winner_2, time: DateTime.new(2018,7,1,12,0,0,'+03:00'), venue: spartak, season: s22}
+{team_1: a_team, team_2: d_team, time: DateTime.new(2018,7,1,11,0,0,'+03:00'), venue: spartak, season: s22, non_league: true},
+{team_1: b_team, team_2: c_team, time: DateTime.new(2018,7,1,11,0,0,'+03:00'), venue: spartak, season: s22, non_league: true},
+{team_1: winner_1, team_2: winner_2, time: DateTime.new(2018,7,1,12,0,0,'+03:00'), venue: spartak, season: s22, non_league: true}
 ]
 
 
 
 scheduled_matches.each do |match|
-  new_fixture = Fixture.create(time: match[:time], venue: match[:venue], season: match[:season])
-  TeamFixture.create(team: match[:team_1], fixture: new_fixture)
-  TeamFixture.create(team: match[:team_2], fixture: new_fixture)
-  puts "created #{match[:team_1].name} vs #{match[:team_2].name} for season #{match[:season].number}"
+  if match[:non_league]
+    new_fixture = Fixture.create(time: match[:time], venue: match[:venue], season: match[:season], non_league: true)
+    TeamFixture.create(team: match[:team_1], fixture: new_fixture)
+    TeamFixture.create(team: match[:team_2], fixture: new_fixture)
+    puts "created non-league #{match[:team_1].name} vs #{match[:team_2].name} for season #{match[:season].number}"
+  else
+    new_fixture = Fixture.create(time: match[:time], venue: match[:venue], season: match[:season])
+    TeamFixture.create(team: match[:team_1], fixture: new_fixture)
+    TeamFixture.create(team: match[:team_2], fixture: new_fixture)
+    puts "created #{match[:team_1].name} vs #{match[:team_2].name} for season #{match[:season].number}"
+  end
 end

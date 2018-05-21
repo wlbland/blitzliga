@@ -5,4 +5,7 @@ class Team < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true,
     length: { maximum: 20 }
+
+  scope :has_registered_players, -> {joins(:players)}
+
 end

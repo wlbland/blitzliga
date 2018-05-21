@@ -19,6 +19,10 @@ desperado_players = Player.create([{first_name: "Христофор", last_name:
 {first_name: "Андраник", last_name: "Налбандян", team: desperado},
 {first_name: "Андрей", last_name: "Логунов", team: desperado},
 {first_name: "Ваня", last_name: "Махно", team: desperado}])
+desperado_players.each do |player|
+  player.update(registered: true)
+end
+
 
 
 freshmen_players = Player.create([{first_name: "Alfred", last_name: "Mabudoko", team: freshmen},
@@ -33,6 +37,9 @@ freshmen_players = Player.create([{first_name: "Alfred", last_name: "Mabudoko", 
 {first_name: "Romain", last_name: "Boniface", team: freshmen},
 {first_name: "Tahir", last_name: "Moussa", team: freshmen},
 {first_name: "Tony", last_name: "Orriere", team: freshmen}])
+freshmen_players.each do |player|
+  player.update(registered: true)
+end
 
 team = galactics
 galactics_players = Player.create([{first_name: "Rainer", last_name: "Fischer", team: team},
@@ -47,6 +54,9 @@ galactics_players = Player.create([{first_name: "Rainer", last_name: "Fischer", 
 {first_name: "Misha", last_name: "Guskin", team: team},
 {first_name: "Nathaniel", last_name: "Bateson", team: team},
 {first_name: "Jerson", last_name: "----", team: team}])
+galactics_players.each do |player|
+  player.update(registered: true)
+end
 
 team = red_star
 red_star_players = Player.create([{first_name: "Paul Rafton", team: team},
@@ -61,6 +71,9 @@ red_star_players = Player.create([{first_name: "Paul Rafton", team: team},
 {first_name: "Curtis", last_name: "Baxter", team: team},
 {first_name: "Chris", last_name: "Parker", team: team},
 {first_name: "Simon", last_name: "Rowat", team: team}])
+red_star_players.each do |player|
+  player.update(registered: true)
+end
 
 team = vverkh
 vverkh_players = Player.create([{last_name: "Куприянов", first_name: "Николай", team: team},
@@ -76,39 +89,51 @@ vverkh_players = Player.create([{last_name: "Куприянов", first_name: "�
 {last_name: "Беляев", first_name: "Григорий", team: team},
 {last_name: "Кашаев", first_name: "Кирилл", team: team},
 {last_name: "Сандаров", first_name: "Алексей", team: team}])
+vverkh_players.each do |player|
+  player.update(registered: true)
+end
 
 team = coalition
 coalition_players = Player.create([{first_name: "Tom", last_name: "Balmforth", team: team},
-{last_name: "Will", last_name: "Chilcott", team: team},
-{last_name: "Felip", last_name: "Cesar", team: team},
-{last_name: "Erhan", last_name: "Poyrazoglu", team: team},
-{last_name: "Ravi", last_name: "Kotecha", team: team},
-{last_name: "Andy", last_name: "Risk", team: team},
-{last_name: "Borj", last_name: "Carsi", team: team},
-{last_name: "Ivan", last_name: "Martynenko", team: team},
-{last_name: "Gergely", last_name: "Stewart", team: team},
-{last_name: "Aleksandr", last_name: "Sobolev", team: team}])
+{first_name: "Will", last_name: "Chilcott", team: team},
+{first_name: "Felip", last_name: "Cesar", team: team},
+{first_name: "Erhan", last_name: "Poyrazoglu", team: team},
+{first_name: "Ravi", last_name: "Kotecha", team: team},
+{first_name: "Andy", last_name: "Risk", team: team},
+{first_name: "Borj", last_name: "Carsi", team: team},
+{first_name: "Ivan", last_name: "Martynenko", team: team},
+{first_name: "Gergely", last_name: "Stewart", team: team},
+{first_name: "Aleksandr", last_name: "Sobolev", team: team}])
+coalition_players.each do |player|
+  player.update(registered: true)
+end
 
 team = unsanctionables
 unsanctionables_players = Player.create([{first_name: "Jack", last_name: "Chapman", team: team},
-{last_name: "Amaan", last_name: "Fazal", team: team},
-{last_name: "JJ", last_name: "O’Shea", team: team},
-{last_name: "Martin", last_name: "Andrew", team: team},
-{last_name: "Hossein", last_name: "Hossein", team: team},
-{last_name: "Paul", last_name: "Friar", team: team},
-{last_name: "Christian", last_name: "Hernandez", team: team},
-{last_name: "Dave", last_name: "Knape", team: team},
-{last_name: "Uri", last_name: "Espana", team: team},
-{last_name: "Chris", last_name: "Donkin", team: team}])
+{first_name: "Amaan", last_name: "Fazal", team: team},
+{first_name: "JJ", last_name: "O’Shea", team: team},
+{first_name: "Martin", last_name: "Andrew", team: team},
+{first_name: "Hossein", last_name: "Hossein", team: team},
+{first_name: "Paul", last_name: "Friar", team: team},
+{first_name: "Christian", last_name: "Hernandez", team: team},
+{first_name: "Dave", last_name: "Knape", team: team},
+{first_name: "Uri", last_name: "Espana", team: team},
+{first_name: "Chris", last_name: "Donkin", team: team}])
+unsanctionables_players.each do |player|
+  player.update(registered: true)
+end
 
 team = cavalry
 cavalry_players = Player.create([{first_name: "Chris", last_name: "Fawcett", team: team},
-{last_name:"Andrei", last_name: "Znobischev", team: team},
-{last_name:"Marat", last_name: "Baichurin", team: team},
-{last_name:"Ross", last_name: "Kernow", team: team},
-{last_name:"Kirill", last_name: "Sabetsky", team: team},
-{last_name:"Kostya", last_name: "Kazantsev", team: team},
-{last_name:"David", last_name: "Paulley", team: team},
-{last_name:"Malcolm", last_name: "Garlick", team: team},
-{last_name:"Erwin", last_name: "Grebe", team: team},
-{last_name:"Kamil", last_name: "Rabdanov", team: team}])
+{first_name:"Andrei", last_name: "Znobischev", team: team},
+{first_name:"Marat", last_name: "Baichurin", team: team},
+{first_name:"Ross", last_name: "Kernow", team: team},
+{first_name:"Kirill", last_name: "Sabetsky", team: team},
+{first_name:"Kostya", last_name: "Kazantsev", team: team},
+{first_name:"David", last_name: "Paulley", team: team},
+{first_name:"Malcolm", last_name: "Garlick", team: team},
+{first_name:"Erwin", last_name: "Grebe", team: team},
+{first_name:"Kamil", last_name: "Rabdanov", team: team}])
+cavalry_players.each do |player|
+  player.update(registered: true)
+end
