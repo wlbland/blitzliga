@@ -4,7 +4,7 @@
     <tr>
       <th scope="row"><%= fixture.match_day_number%></th>
       <td class="text-left"><%= TeamFixture.where(fixture: fixture.id)[0].team.name %></td>
-      <td class="text-center"><%= fixture.time.in_time_zone("Europe/Moscow").strftime("%b %d, %H:%M") %>, Spartak</td>
+      <td class="text-center"><%= fixture.time.in_time_zone("Europe/Moscow").strftime("%b %d, %H:%M") %> at <%= fixture.venue.name %></td>
       <td class="text-right"><%= TeamFixture.where(fixture: fixture.id)[1].team.name %></td>
     </tr>
 

@@ -10,7 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Fixtures", "#", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
+      <%= link_to "Fixtures", future_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "Results", "#", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "Tables", "#", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "Teams", teams_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
@@ -42,7 +42,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to "Fixtures", "#", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
+      <%= link_to "Fixtures", future_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "Results", "#", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "Tables", "#", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "Teams", teams_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>

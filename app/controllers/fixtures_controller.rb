@@ -39,6 +39,10 @@ class FixturesController < ApplicationController
     redirect_to fixtures_path
   end
 
+  def future
+    @fixtures = Fixture.all.future
+  end
+
 
   private
 

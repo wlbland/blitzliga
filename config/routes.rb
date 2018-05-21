@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :teams do
     resources :players
   end
-  root 'fixtures#index'
+  root 'welcome#index'
+
+  resources :fixtures, only: [:show, :index]
+
+   get '/future', to: 'fixtures#future', as: 'future'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
