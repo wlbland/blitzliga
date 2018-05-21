@@ -1,5 +1,6 @@
 
   teams = Team.create([{ name: 'Coalition'}, { name: 'ING'}, { name: 'Vverkh'}, { name: 'Desperado'}, { name: 'GreenTeam'}, { name: 'Basis'}, { name: 'Klerki'}, { name: 'Red Star'}, { name: 'British Embassy'}, { name: 'Freshmen'}, { name: 'Bro-13'}, { name: 'Anthill'}, { name: 'Moystroitel'}, { name: 'B.O.R.T.'}, { name: 'The Six Offenders'}, { name: 'Black Rocket'}, { name: 'The Unsanctionables'}, { name: 'Cavalry'}, { name: 'CREF'}, { name: 'Great Warriors'}, { name: 'FC Unifin'}, { name: 'The Galactics'}, { name: 'Happy Sundays'}])
+  finalists = Team.create([{name: 'Winner SF1'}, {name: 'Winner SF2'}, {name: 'Loser SF1'}, {name: 'Loser SF2'}, {name: '1st Placed'}, {name: '2nd Placed'}, {name: '3rd Placed'}, {name: '4th Placed'}])
 
 
   coalition = Team.find_by(name: "Coalition")
@@ -10,6 +11,14 @@
   unsanctionables = Team.find_by(name: "The Unsanctionables")
   cavalry = Team.find_by(name: "Cavalry")
   galactics = Team.find_by(name: "The Galactics")
+  winner_1 = Team.find_by(name: "Winner SF1")
+  winner_2 = Team.find_by(name: "Winner SF2")
+  loser_1 = Team.find_by(name: "Loser SF1")
+  loser_2 = Team.find_by(name: "Loser SF2")
+  a_team = Team.find_by(name: "1st Placed")
+  b_team = Team.find_by(name: "2nd Placed")
+  c_team = Team.find_by(name: "3rd Placed")
+  d_team = Team.find_by(name: "4th Placed")
 
   spartak = Venue.create(name: "Spartak")
 
@@ -17,20 +26,46 @@
   s22 = Season.create(number: 22)
 
 scheduled_matches =
-[{team_1: coalition, team_2: galactics, time: DateTime.new(2018,5,20,11,0,0,'+03:00'), venue: spartak, season: s22},
+[ {team_1: coalition, team_2: galactics, time: DateTime.new(2018,5,20,11,0,0,'+03:00'), venue: spartak, season: s22},
 {team_1: red_star, team_2: unsanctionables, time: DateTime.new(2018,5,20,11,0,0,'+03:00'), venue: spartak, season: s22},
-{team_1: freshmen, team_2: vverkh, time: DateTime.new(2018,5,20,11,0,0,'+03:00'), venue: spartak, season: s22},
-{team_1: desperado, team_2: cavalry, time: DateTime.new(2018,5,20,11,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: freshmen, team_2: vverkh, time: DateTime.new(2018,5,20,12,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: desperado, team_2: cavalry, time: DateTime.new(2018,5,20,12,0,0,'+03:00'), venue: spartak, season: s22},
 
-{team_1: unsanctionables, team_2: coalition, time: DateTime.new(2018,5,27,11,0,0,'+03:00'), venue: spartak, season: s22},
-{team_1: vverkh, team_2: red_star, time: DateTime.new(2018,5,27,11,0,0,'+03:00'), venue: spartak, season: s22},
-{team_1: cavalry, team_2: freshmen, time: DateTime.new(2018,5,27,11,0,0,'+03:00'), venue: spartak, season: s22},
-{team_1: galactics, team_2: desperado, time: DateTime.new(2018,5,27,11,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: coalition, team_2: vverkh, time: DateTime.new(2018,5,27,10,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: red_star, team_2: cavalry, time: DateTime.new(2018,5,27,10,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: freshmen, team_2: unsanctionables, time: DateTime.new(2018,5,27,11,0,0,'+03:00'), venue: spartak, season: s21},
+{team_1: desperado, team_2: galactics, time: DateTime.new(2018,5,27,11,0,0,'+03:00'), venue: spartak, season: s21},
+{team_1: winner_1, team_2: winner_2, time: DateTime.new(2018,5,27,12,0,0,'+03:00'), venue: spartak, season: s21},
+{team_1: loser_1, team_2: loser_2, time: DateTime.new(2018,5,27,12,0,0,'+03:00'), venue: spartak, season: s21},
 
-{team_1: coalition, team_2: vverkh, time: DateTime.new(2018,6,3,11,0,0,'+03:00'), venue: spartak, season: s22},
-{team_1: red_star, team_2: cavalry, time: DateTime.new(2018,6,3,11,0,0,'+03:00'), venue: spartak, season: s22},
-{team_1: freshmen, team_2: desperado, time: DateTime.new(2018,6,3,11,0,0,'+03:00'), venue: spartak, season: s22},
-# {team_1: unsanctionables, team_2: galactics, time: DateTime.new(2018,6,3,11,0,0,'+03:00'), venue: spartak, season: s22}
+{team_1: coalition, team_2: desperado, time: DateTime.new(2018,6,3,11,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: red_star, team_2: freshmen, time: DateTime.new(2018,6,3,11,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: unsanctionables, team_2: cavalry, time: DateTime.new(2018,6,3,11,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: vverkh, team_2: galactics, time: DateTime.new(2018,6,3,11,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: cavalry, team_2: coalition, time: DateTime.new(2018,6,3,12,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: desperado, team_2: red_star, time: DateTime.new(2018,6,3,12,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: galactics, team_2: freshmen, time: DateTime.new(2018,6,3,12,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: vverkh, team_2: unsanctionables, time: DateTime.new(2018,6,3,12,0,0,'+03:00'), venue: spartak, season: s22},
+
+{team_1: unsanctionables, team_2: coalition, time: DateTime.new(2018,6,17,11,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: vverkh, team_2: red_star, time: DateTime.new(2018,6,17,11,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: cavalry, team_2: freshmen, time: DateTime.new(2018,6,17,11,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: galactics, team_2: desperado, time: DateTime.new(2018,6,17,11,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: freshmen, team_2: coalition, time: DateTime.new(2018,6,17,12,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: galactics, team_2: red_star, time: DateTime.new(2018,6,17,12,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: desperado, team_2: unsanctionables, time: DateTime.new(2018,6,17,12,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: cavalry, team_2: vverkh, time: DateTime.new(2018,6,17,12,0,0,'+03:00'), venue: spartak, season: s22},
+
+{team_1: coalition, team_2: red_star, time: DateTime.new(2018,6,24,12,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: unsanctionables, team_2: freshmen, time: DateTime.new(2018,6,24,11,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: vverkh, team_2: desperado, time: DateTime.new(2018,6,24,11,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: cavalry, team_2: galactics, time: DateTime.new(2018,6,24,11,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: freshmen, team_2: desperado, time: DateTime.new(2018,6,24,12,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: unsanctionables, team_2: galactics, time: DateTime.new(2018,6,24,12,0,0,'+03:00'), venue: spartak, season: s22},
+
+{team_1: a_team, team_2: d_team, time: DateTime.new(2018,7,1,11,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: b_team, team_2: c_team, time: DateTime.new(2018,7,1,11,0,0,'+03:00'), venue: spartak, season: s22},
+{team_1: winner_1, team_2: winner_2, time: DateTime.new(2018,7,1,12,0,0,'+03:00'), venue: spartak, season: s22}
 ]
 
 
