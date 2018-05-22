@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  get 'welcome/index'
 
   resources :teams do
     resources :players
   end
-  root 'welcome#index'
+
+  root 'fixtures#next'
 
   # resources :fixtures, only: [:show, :index]
 
@@ -18,10 +18,9 @@ Rails.application.routes.draw do
     resources :team_scores
   end
 
-
-
-
   get "/pages/:page" => "pages#show"
+  get 'welcome/index'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
