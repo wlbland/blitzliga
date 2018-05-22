@@ -9,5 +9,8 @@ Rails.application.routes.draw do
   resources :fixtures, only: [:show, :index]
 
    get '/future', to: 'fixtures#future', as: 'future'
+
+   get "/pages/:page" => "pages#show"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -2,12 +2,12 @@
   <h2>
     <%= @team.name %>
   </h2>
-
+   <%= link_to 'See other teams', teams_path %>
+  <div>
     <%= render @team.players %>
-
+  </div>
   <!-- <h2>Add a player:</h2> -->
     <%#<%= render 'players/form' %>
 
   <%#<%= link_to 'Edit', edit_team_path(@team) %>
-  <%= link_to 'See other teams', teams_path %>
 </div>
