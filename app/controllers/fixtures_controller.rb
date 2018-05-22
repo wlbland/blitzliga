@@ -1,7 +1,9 @@
 class FixturesController < ApplicationController
-   def index
+
+  def index
     @fixtures = Fixture.all
   end
+
 
   def show
     @fixture = Fixture.find(params[:id])
@@ -41,6 +43,14 @@ class FixturesController < ApplicationController
 
   def future
     @fixtures = Fixture.all.future
+  end
+
+  def past
+    @fixtures = Fixture.all.past
+  end
+
+  def next
+    @fixtures = Fixture.future.next
   end
 
 

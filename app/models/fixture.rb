@@ -1,6 +1,7 @@
 class Fixture < ApplicationRecord
   has_many :team_fixtures, dependent: :destroy
   has_many :teams, through: :team_fixtures
+  has_one :team_score
   belongs_to :venue
   belongs_to :season
 
