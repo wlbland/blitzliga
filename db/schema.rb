@@ -10,15 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180521212507) do
+ActiveRecord::Schema.define(version: 20180522145446) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "fixtures", force: :cascade do |t|
     t.datetime "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "venue_id"
+    t.bigint "venue_id"
     t.boolean "non_league", default: false
-    t.integer "season_id"
+    t.bigint "season_id"
     t.index ["season_id"], name: "index_fixtures_on_season_id"
     t.index ["venue_id"], name: "index_fixtures_on_venue_id"
   end
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 20180521212507) do
   create_table "players", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.integer "team_id"
+    t.bigint "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "registered", default: false
@@ -40,8 +43,8 @@ ActiveRecord::Schema.define(version: 20180521212507) do
   end
 
   create_table "team_fixtures", force: :cascade do |t|
-    t.integer "team_id"
-    t.integer "fixture_id"
+    t.bigint "team_id"
+    t.bigint "fixture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["fixture_id"], name: "index_team_fixtures_on_fixture_id"
@@ -78,4 +81,9 @@ ActiveRecord::Schema.define(version: 20180521212507) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "fixtures", "seasons"
+  add_foreign_key "fixtures", "venues"
+  add_foreign_key "players", "teams"
+  add_foreign_key "team_fixtures", "fixtures"
+  add_foreign_key "team_fixtures", "teams"
 end
