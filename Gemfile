@@ -30,8 +30,12 @@ gem "recaptcha", require: "recaptcha/rails"
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+# Don't use sqlite3 as the database for Active Record
+# gem 'sqlite3'
+
+# Use postgres as the database for Active Record
+gem 'pg'
 
 gem 'turbolinks', '~> 5.0.0'
 
