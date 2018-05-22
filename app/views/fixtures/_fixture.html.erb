@@ -1,0 +1,11 @@
+
+<% if fixture.teams.count == 2 %>
+
+    <tr>
+      <th scope="row">S<%= fixture.season.number %> - <%= fixture.match_day_number unless fixture.non_league %></th>
+      <td class="text-left"><%= TeamFixture.where(fixture: fixture.id)[0].team.name %></td>
+      <td class="text-center small"><%= fixture.time.in_time_zone("Europe/Moscow").strftime("%b %d, %H:%M") %> at <%= fixture.venue.name %></td>
+      <td class="text-right"><%= TeamFixture.where(fixture: fixture.id)[1].team.name %></td>
+    </tr>
+
+<% end %>

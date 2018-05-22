@@ -1,3 +1,21 @@
-<h1>Hello!</h1>
-<%= link_to 'Teams', controller: 'teams' %>
+<div class="container">
+ <h1>Next Fixtures</h1>
 
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-bordered table-striped ">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+             <th scope="col">Team 1</th>
+            <th scope="col" class="text-center">Date, Time (MSK), Venue</th>
+            <th scope="col" class="text-right">Team 2</th>
+          </tr>
+        </thead>
+        <tbody>
+            <%= render @fixtures.future.next %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

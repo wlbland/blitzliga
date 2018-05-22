@@ -1,22 +1,24 @@
-<h1>Listing teams</h1>
+<div class="container">
+  <h1>Teams</h1>
 
-<%= link_to 'New team', new_team_path %>
+  <%#<%= link_to 'New team', new_team_path %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Action</th>
-    <th colspan="3"></th>
-  </tr>
-
-  <% @teams.each do |team| %>
+  <table class="table">
     <tr>
-      <td><%= team.name %></td>
-      <td><%= link_to 'Show', team_path(team) %></td>
-      <td><%= link_to "Edit", edit_team_path(team) %></td>
-      <td><%= link_to "Delete", team_path(team),
-              method: :delete,
-              data: {confirm: 'Are you sure?'}  %></td>
+      <!-- <th>Name</th> -->
+      <!-- <th>Action</th> -->
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-</table>
+
+    <% @teams.has_registered_players.distinct.each do |team| %>
+      <tr>
+        <td><%= team.name %></td>
+        <td><%= link_to 'See Players', team_path(team) %></td>
+        <%#<%= link_to "Edit", edit_team_path(team) %>
+        <%#<%= link_to "Delete", team_path(team),
+                method: :delete,
+                data: {confirm: 'Are you sure?'}  %>
+      </tr>
+    <% end %>
+  </table>
+</div>
