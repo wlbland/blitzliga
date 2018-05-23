@@ -8,15 +8,19 @@ Rails.application.routes.draw do
 
   root 'fixtures#next'
 
-  # resources :fixtures, only: [:show, :index]
 
   resources :fixtures, only: [:show, :index] do
     get "next", :on => :collection
     get "past", :on => :collection
     get "future", :on => :collection
 
+    resources :teams,  only: [:show]
+  end
+
+  resources :team_fixtures, only: [:show, :index] do
     resources :team_scores
   end
+
 
   get "/pages/:page" => "pages#show"
   get 'welcome/index'
