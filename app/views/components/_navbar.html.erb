@@ -10,9 +10,9 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Fixtures", future_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
-      <%= link_to "Results", "#", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
-      <%= link_to "Tables", "#", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
+      <%= link_to "Full Fixtures", future_fixtures_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
+      <%= link_to "Results", results_fixtures_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
+      <%= link_to "Tables", "/pages/tables", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "Teams", teams_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "About Us", "/pages/about-us", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
 
@@ -42,9 +42,9 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to "Fixtures", future_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
-      <%= link_to "Results", "#", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
-      <%= link_to "Tables", "#", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
+      <%= link_to "Full Fixtures", future_fixtures_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
+      <%= link_to "Results", results_fixtures_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
+      <%= link_to "Tables", "/pages/tables", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "Teams", teams_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%# <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "About Us", "/pages/about-us", class: "navbar-blitzliga-item navbar-blitzliga-link" %>

@@ -1,16 +1,31 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'welcome/index'
+
+
   resources :teams do
     resources :players
   end
-  root 'welcome#index'
 
-  resources :fixtures, only: [:show, :index]
+  root 'fixtures#next'
 
-   get '/future', to: 'fixtures#future', as: 'future'
 
-   get "/pages/:page" => "pages#show"
+  resources :fixtures, only: [:show, :index] do
+    get "next", :on => :collection
+    get "past", :on => :collection
+    get "future", :on => :collection
+    get "results", :on => :collection
+
+    resources :teams,  only: [:show]
+  end
+
+  resources :team_fixtures, only: [:show, :index] do
+    resources :team_scores
+  end
+
+
+  get "/pages/:page" => "pages#show"
+  get 'welcome/index'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

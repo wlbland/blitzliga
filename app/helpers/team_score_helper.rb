@@ -1,0 +1,2 @@
+module TeamScoreHelper
+end

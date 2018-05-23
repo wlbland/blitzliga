@@ -1,0 +1,12 @@
+<%= form_for([@team_fixture, @team_score]) do |form| %>
+  <p>
+    <%= form.label :total_goals %><br>
+    <%= form.text_field :total_goals %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+

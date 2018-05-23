@@ -1,6 +1,8 @@
 class Fixture < ApplicationRecord
   has_many :team_fixtures, dependent: :destroy
   has_many :teams, through: :team_fixtures
+  # check this line
+  has_many :team_scores, through: :team_fixtures
   belongs_to :venue
   belongs_to :season
 
@@ -15,6 +17,10 @@ class Fixture < ApplicationRecord
   scope :future, ->{ where("time > ?", Time.now) }
 
   scope :next, ->{ where("time < ?", Time.now + 7.days) }
+
+
+  scope :result_recorded, -> { joins(:team_scores)}
+
 
 
   def match_day_number
@@ -33,5 +39,6 @@ class Fixture < ApplicationRecord
   def future
     @fixtures = Fixture.future
   end
+
 
 end
