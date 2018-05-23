@@ -12,6 +12,8 @@ class Fixture < ApplicationRecord
 
   scope :for_season, ->(season_number) { where(season: Season.find_by(number:season_number)) }
 
+  # scope :for_team, ->(team_number) { where(season: Season.find_by(number:season_number)) }
+
   scope :past, ->{ where("time < ?", Time.now) }
 
   scope :future, ->{ where("time > ?", Time.now) }
