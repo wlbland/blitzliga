@@ -3,9 +3,14 @@
 
     <tr>
       <th scope="row">  <%= link_to "S#{fixture.season.number} - #{fixture.match_day_number unless fixture.non_league}", fixture_path(fixture) %> </th>
-      <td class="text-left"><%= TeamFixture.where(fixture: fixture.id)[0].team.name %></td>
-      <td class="text-center small"><%= fixture.time.in_time_zone("Europe/Moscow").strftime("%b %d, %H:%M") %> at <%= fixture.venue.name %></td>
-      <td class="text-right"><%= TeamFixture.where(fixture: fixture.id)[1].team.name %></td>
+      <td class="text-left">
+          <%= TeamFixture.where(fixture: fixture.id)[0].team.name %>
+          <%=  TeamFixture.where(fixture: fixture.id)[0].try(:team_score).try(:total_goals) ? " - #{TeamFixture.where(fixture: fixture.id)[0].team_score.total_goals}" : "" %></td>
+      <td class="text-center small">
+          <%= fixture.time.in_time_zone("Europe/Moscow").strftime("%b %d, %H:%M") %> at <%= fixture.venue.name %></td>
+      <td class="text-right">
+          <%=  TeamFixture.where(fixture: fixture.id)[1].try(:team_score).try(:total_goals) ? "#{TeamFixture.where(fixture: fixture.id)[1].team_score.total_goals} - " : "" %>
+          <%= TeamFixture.where(fixture: fixture.id)[1].team.name %></td>
     </tr>
 
 <% end %>

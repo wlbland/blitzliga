@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get "next", :on => :collection
     get "past", :on => :collection
     get "future", :on => :collection
+    get "results", :on => :collection
 
     resources :teams,  only: [:show]
   end

@@ -10,7 +10,12 @@
         </tr>
       </thead>
       <tbody>
-          <%= render @fixtures %>
+          <%= if @fixtures
+              render @fixtures
+              # raise
+            else
+              render @fixture
+            end %>
       </tbody>
     </table>
   </div>

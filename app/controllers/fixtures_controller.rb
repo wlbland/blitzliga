@@ -53,6 +53,10 @@ class FixturesController < ApplicationController
     @fixtures = Fixture.future.next
   end
 
+  def results
+    @fixtures = Fixture.result_recorded
+  end
+
 
   private
 
