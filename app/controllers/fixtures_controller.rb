@@ -42,19 +42,19 @@ class FixturesController < ApplicationController
   end
 
   def future
-    @fixtures = Fixture.all.future
+    @fixtures = Fixture.all.future.order(time: :asc)
   end
 
   def past
-    @fixtures = Fixture.all.past
+    @fixtures = Fixture.all.past.order(time: :desc)
   end
 
   def next
-    @fixtures = Fixture.future.next
+    @fixtures = Fixture.future.next.order(time: :asc)
   end
 
   def results
-    @fixtures = Fixture.result_recorded
+    @fixtures = Fixture.result_recorded.order(time: :desc)
   end
 
 
