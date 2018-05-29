@@ -4,7 +4,10 @@
   </h2>
    <%= link_to 'See other teams', teams_path %>
   <div>
-    <%= render @team.players %>
+    <ol>
+      <%= render @team.players.order(last_name: :asc) %>
+    </ol>
+    * = registered player
   </div>
   <!-- <h2>Add a player:</h2> -->
     <%#<%= render 'players/form' %>

@@ -1,6 +1,8 @@
-  <p>
-    <%= player.first_name %> <%= player.last_name %>
+  <li>
+    <%= player.first_name %> <%= player.last_name %> <%= "- (Captain)" if player.captain %><%= "*" if player.registered && !player.captain %>
+    <!-- This should show the date of the most recent change of a player's status. Currently, it shows when the player was created -->
+    <%= "#{player.created_at.strftime("%B %Y")}" %>
     <%#<%= link_to 'Delete Player', [player.team, player],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
-  </p>
+  </li>

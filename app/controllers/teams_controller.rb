@@ -3,11 +3,12 @@ class TeamsController < ApplicationController
   # http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
   def index
-    @teams = Team.all
+    @teams = policy_scope(Team)
   end
 
   def show
     @team = Team.find(params[:id])
+    authorize(@team)
   end
 
   # def new
@@ -18,14 +19,15 @@ class TeamsController < ApplicationController
   #   @team = Team.find(params[:id])
   # end
 
-  # def create
-  #   @team = Team.new(team_params)
-  #   if @team.save
-  #     redirect_to @team
-  #   else
-  #     render 'new'
-  #   end
-  # end
+  def create
+    @team = Team.new(team_params)
+    authorize @team
+    if @team.save
+      redirect_to @team
+    else
+      render 'new'
+    end
+  end
 
   # def update
   #   @team = Team.find(params[:id])

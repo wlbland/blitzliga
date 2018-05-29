@@ -1,13 +1,17 @@
 class FixturesController < ApplicationController
 
+  skip_after_action :verify_authorized, only: [:future, :past, :next, :results]
+
 
   def index
-    @fixtures = Fixture.all
+    # @fixtures = Fixture.all
+    @fixtures = policy_scope(Fixture)
   end
 
 
   def show
     @fixture = Fixture.find(params[:id])
+    authorize @fixture
   end
 
   # def new
@@ -38,16 +42,17 @@ class FixturesController < ApplicationController
 
   def destroy
     @fixture = Fixture.find(params[:id])
+    authorize @fixture
     @fixture.destroy
     redirect_to fixtures_path
   end
 
   def future
-    @fixtures = Fixture.all.future.order(time: :asc)
+    @fixtures = policy_scope(Fixture).future.order(time: :asc)
   end
 
   def past
-    @fixtures = Fixture.all.past.order(time: :desc)
+    @fixtures = policy_scope(Fixture).past.order(time: :desc)
   end
 
   def next
