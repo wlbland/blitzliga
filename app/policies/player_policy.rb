@@ -5,14 +5,18 @@ class PlayerPolicy < ApplicationPolicy
     end
   end
 
-  def create?
-    #only allow team captains or admins to create new players
-    # record.team.user == user
+  def new?
     true
   end
 
-  def update?
+
+  def create?
     user_is_admin? || (user_is_captain? && user_is_on_selected_team?)
+  end
+
+  def update?
+    # user_is_admin? || (user_is_captain? && user_is_on_selected_team?)
+    user_is_admin? || user_is_captain?
   end
 
 private

@@ -3,14 +3,20 @@
     <%= @team.name %>
   </h2>
    <%= link_to 'See other teams', teams_path %>
+
+  <% if policy(@team).update? %>
+    <!-- <div> -->
+      <!-- <strong>Register a new player:</strong> -->
+        <%# <%= render 'players/form' %>
+    <!-- </div> -->
+    <%= link_to '- Add a player', new_player_path %>
+  <% end %>
+
   <div>
     <ol>
       <%= render @team.players.order(last_name: :asc) %>
     </ol>
     * = registered player
   </div>
-  <!-- <h2>Add a player:</h2> -->
-    <%#<%= render 'players/form' %>
-
   <%#<%= link_to 'Edit', edit_team_path(@team) %>
 </div>

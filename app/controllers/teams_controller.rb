@@ -11,13 +11,15 @@ class TeamsController < ApplicationController
     authorize(@team)
   end
 
-  # def new
-  #   @team = Team.new
-  # end
+  def new
+    @team = Team.new
+    authorize(@team)
+  end
 
-  # def edit
-  #   @team = Team.find(params[:id])
-  # end
+  def edit
+    @team = Team.find(params[:id])
+    authorize(@team)
+  end
 
   def create
     @team = Team.new(team_params)

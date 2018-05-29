@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :players
   end
 
+  resources :players do
+  end
+
   root 'fixtures#next'
 
 

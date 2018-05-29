@@ -6,6 +6,7 @@ class Player < ApplicationRecord
   belongs_to :user, optional: true
   has_many :goals
 
+
   # define_attribute_methods :registered
 
   # def initialize
