@@ -2,6 +2,8 @@ class TeamsController < ApplicationController
 
   # http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @teams = policy_scope(Team)
   end

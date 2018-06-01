@@ -1,0 +1,8 @@
+class Post < ApplicationRecord
+  attr_reader :user
+
+  def initialize(user)
+    @user = user
+  end
+
+end

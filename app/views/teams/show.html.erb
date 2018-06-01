@@ -4,7 +4,7 @@
   </h2>
    <%= link_to 'See other teams', teams_path %>
 
-  <% if policy(@team).update? %>
+  <%  if policy(@team).update? %>
     <!-- <div> -->
       <!-- <strong>Register a new player:</strong> -->
         <%# <%= render 'players/form' %>
@@ -13,10 +13,18 @@
   <% end %>
 
   <div>
+    <h3>Registered Players</h3>
     <ol>
-      <%= render @team.players.order(last_name: :asc) %>
+      <%= render @team.players.registered.order(last_name: :asc) %>
     </ol>
-    * = registered player
   </div>
+  <% unless @team.players.unregistered.empty? %>
+    <div>
+      <h3>Unregistered Players</h3>
+      <ol>
+        <%= render @team.players.unregistered.order(last_name: :asc) %>
+      </ol>
+    </div>
+  <% end %>
   <%#<%= link_to 'Edit', edit_team_path(@team) %>
 </div>

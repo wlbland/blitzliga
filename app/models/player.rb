@@ -6,6 +6,10 @@ class Player < ApplicationRecord
   belongs_to :user, optional: true
   has_many :goals
 
+  scope :registered, ->{ where("registered = ?", true) }
+  scope :unregistered, ->{ where("registered = ?", !true) }
+
+
 
   # define_attribute_methods :registered
 
