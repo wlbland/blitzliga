@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  # , controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: "registrations", passwords: "passwords" }
+
+  # get '/auth/:provider/callback', to: 'sessions#create'
 
 
   resources :teams do
     resources :players
+  end
+
+  resources :players do
   end
 
   root 'fixtures#next'

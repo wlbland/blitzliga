@@ -8,4 +8,5 @@ class Team < ApplicationRecord
 
   scope :has_registered_players, -> {joins(:players)}
 
+
 end

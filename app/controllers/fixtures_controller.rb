@@ -1,12 +1,19 @@
 class FixturesController < ApplicationController
 
+  skip_before_action :authenticate_user!
+
+  skip_after_action :verify_authorized, only: [:future, :past, :next, :results]
+
+
   def index
-    @fixtures = Fixture.all
+    # @fixtures = Fixture.all
+    @fixtures = policy_scope(Fixture)
   end
 
 
   def show
     @fixture = Fixture.find(params[:id])
+    authorize @fixture
   end
 
   # def new
@@ -37,24 +44,25 @@ class FixturesController < ApplicationController
 
   def destroy
     @fixture = Fixture.find(params[:id])
+    authorize @fixture
     @fixture.destroy
     redirect_to fixtures_path
   end
 
   def future
-    @fixtures = Fixture.all.future
+    @fixtures = policy_scope(Fixture).future.order(time: :asc)
   end
 
   def past
-    @fixtures = Fixture.all.past
+    @fixtures = policy_scope(Fixture).past.order(time: :desc)
   end
 
   def next
-    @fixtures = Fixture.future.next
+    @fixtures = Fixture.future.next.order(time: :asc)
   end
 
   def results
-    @fixtures = Fixture.result_recorded
+    @fixtures = Fixture.result_recorded.order(time: :desc)
   end
 
 
