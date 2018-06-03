@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <div class="dashboard__nogroup">
+                <h2 class="dashboard__nogroup-text"> Who are you? </h2>
+                <%= form_tag("/code", method: "post") do %>
+                  <%= label_tag :group_code, "Enter player code", class: "form__label" %>
+                  <%= text_field_tag :group_code, nil, class: "form__input" %>
+                  <%= submit_tag "Submit", class: "cta form__btn" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

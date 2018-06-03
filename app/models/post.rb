@@ -1,8 +1,15 @@
-class Post < ApplicationRecord
-  attr_reader :user
+# the Post model isn't being used
 
-  def initialize(user)
-    @user = user
-  end
+# class Post < ApplicationRecord
+#   attr_reader :user
 
-end
+#   def initialize(user)
+#     @user = user
+#   end
+
+#   def match_user_to_player(code)
+#     player = Player.where("code = ?", code).first
+#     player.update(user = @user)
+#   end
+
+# end
