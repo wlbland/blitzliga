@@ -20,8 +20,8 @@ class Fixture < ApplicationRecord
 
   scope :next, ->{ where("time < ?", Time.now + 14.days) }
 
-  # scope :result_recorded, -> { joins(:team_scores).distinct }
-  scope :result_recorded, -> { includes(:team_scores).where(team_scores: {id:!nil}) }
+  scope :result_recorded, -> { joins(:team_scores).distinct }
+  # scope :result_recorded, -> { includes(:team_scores).where(team_scores: {id:!nil}) }
 
   scope :no_result, -> { includes(:team_scores).where(team_scores: {id:nil}) }
 
