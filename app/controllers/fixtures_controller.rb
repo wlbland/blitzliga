@@ -65,6 +65,10 @@ class FixturesController < ApplicationController
     @fixtures = Fixture.result_recorded.order(time: :desc)
   end
 
+  # def results_due
+  #   @fixtures = policy_scope(Fixture).past.order(time: :desc)
+  # end
+
 
   private
 
