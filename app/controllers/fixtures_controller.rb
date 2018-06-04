@@ -2,7 +2,8 @@ class FixturesController < ApplicationController
 
   skip_before_action :authenticate_user!
 
-  skip_after_action :verify_authorized, only: [:future, :past, :next, :results]
+  skip_after_action :verify_authorized, only: [:future, :past, :next, :results, :overdue]
+
 
 
   def index
@@ -16,22 +17,22 @@ class FixturesController < ApplicationController
     authorize @fixture
   end
 
-  # def new
-  #   @fixture = Fixture.new
-  # end
+  def new
+    @fixture = Fixture.new
+  end
 
   # def edit
   #   @fixture = Fixture.find(params[:id])
   # end
 
-  # def create
-  #   @fixture = Fixture.new(team_params)
-  #   if @fixture.save
-  #     redirect_to @fixture
-  #   else
-  #     render 'new'
-  #   end
-  # end
+  def create
+    @fixture = Fixture.new(team_params)
+    if @fixture.save
+      redirect_to @fixture
+    else
+      render 'new'
+    end
+  end
 
   # def update
   #   @fixture = Fixture.find(params[:id])
@@ -59,6 +60,10 @@ class FixturesController < ApplicationController
 
   def next
     @fixtures = Fixture.future.next.order(time: :asc)
+  end
+
+  def overdue
+    @fixtures = policy_scope(Fixture).past.no_result.order(time: :asc)
   end
 
   def results

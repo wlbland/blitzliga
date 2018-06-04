@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get "past", :on => :collection
     get "future", :on => :collection
     get "results", :on => :collection
+    get "overdue", :on => :collection
 
     resources :teams,  only: [:show]
   end
