@@ -11,6 +11,11 @@
       <td class="text-right">
           <%=  TeamFixture.where(fixture: fixture.id)[1].try(:team_score).try(:total_goals) ? "#{TeamFixture.where(fixture: fixture.id)[1].team_score.total_goals} - " : "" %>
           <%= TeamFixture.where(fixture: fixture.id)[1].team.name %></td>
+      <% if user_signed_in? && policy(fixture).display_result_form %>
+      <td class="text-right">
+        Edit this fixture
+      </td>
+      <% end %>
     </tr>
 
 <% end %>

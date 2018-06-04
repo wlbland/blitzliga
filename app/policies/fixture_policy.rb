@@ -11,4 +11,8 @@ class FixturePolicy < ApplicationPolicy
     true
   end
 
+  def display_result_form
+    user.referee || user.admin
+  end
+
 end
