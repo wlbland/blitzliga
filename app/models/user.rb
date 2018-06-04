@@ -5,8 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook]
 
-
   has_one :player
+
+  # validates :code, uniqueness: true
+
+  # before_create :associate_with_player, unless: :has_no_code
+  # before_save :associate_with_player, unless: :has_no_code
+  before_update :associate_with_player, unless: :has_no_code
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -27,6 +32,26 @@ class User < ApplicationRecord
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+  # private
+
+  def associate_with_player
+    unless self.has_no_code
+      # find associated player
+      associable_player = Player.where(code: self.code).first
+      if associable_player
+        # if the associated player already has a user associated, delete this association
+        associable_player.update(user: nil) if associable_player.user
+        # then associate the player with the current user
+        self.player = associable_player
+      end
+    end
+  end
+
+
+  def has_no_code
+    self.code.nil?
   end
 
 end

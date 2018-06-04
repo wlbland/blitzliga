@@ -18,7 +18,7 @@ class Fixture < ApplicationRecord
 
   scope :future, ->{ where("time > ?", Time.now) }
 
-  scope :next, ->{ where("time < ?", Time.now + 7.days) }
+  scope :next, ->{ where("time < ?", Time.now + 14.days) }
 
 
   scope :result_recorded, -> { joins(:team_scores)}

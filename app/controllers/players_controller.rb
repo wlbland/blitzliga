@@ -2,8 +2,10 @@ class PlayersController < ApplicationController
 
   # http_basic_authenticate_with name: "dhh", password: "secret", only: :destroy
 
-  def new(team = nil)
-    @player = Player.new(team: team)
+  # def new(team = nil)
+  def new
+    @player = Player.new
+    @team = Team.find(params[:team_id])
     authorize(@player)
   end
 
@@ -44,7 +46,7 @@ class PlayersController < ApplicationController
   private
 
     def player_params
-      params.require(:player).permit(:first_name, :last_name, :registered, :team)
+      params.require(:player).permit(:first_name, :last_name, :team_id, :registered, :team)
     end
 
 end

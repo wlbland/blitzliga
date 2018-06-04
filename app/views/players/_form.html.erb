@@ -1,14 +1,22 @@
-<%= form_with(model: [ @team, @team.players.build ], local: true) do |form| %>
-<%# <%= form_with model: @player, local: true do |form| %>
-  <p>
-    <%= form.label :first_name %><br>
-    <%= form.text_field :first_name %>
-  </p>
-  <p>
-    <%= form.label :last_name %><br>
-    <%= form.text_field :last_name %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%# <% if policy(@player).update? %>
+
+  <%= form_with(model: [ @team, @team.players.build ], local: true) do |form| %>
+  <%# <%= form_with model: @player, local: true do |form| %>
+    <p>
+      <%= form.label :first_name %><br>
+      <%= form.text_field :first_name %>
+    </p>
+    <p>
+      <%= form.label :last_name %><br>
+      <%= form.text_field :last_name %>
+    </p>
+    <p class="check-box">
+      <%= form.label :registered %> <br />
+      <%= form.check_box :registered %> <br />
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+
+<%# <% end %>

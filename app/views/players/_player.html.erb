@@ -9,12 +9,12 @@
        <% if player.registered? %>
           <%= form_for player, :html => {:class => 'form-inline'} do |f| %>
             <%= f.hidden_field :registered, value: false %>
-            <%= f.submit 'Unregister' %>
+            <%= f.submit 'Unregister', class: "btn btn-link" %>
           <% end %>
         <% else %>
           <%= form_for player do |f| %>
             <%= f.hidden_field :registered, value: true %>
-            <%= f.submit 'Register' %>
+            <%= f.submit 'Register', class: "btn btn-success" %>
           <% end %>
         <% end %>
       <% end %>
