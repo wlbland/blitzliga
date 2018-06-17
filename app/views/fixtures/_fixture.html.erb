@@ -6,16 +6,19 @@
       <td class="text-left">
           <%= TeamFixture.where(fixture: fixture.id)[0].team.name %>
           <%=  TeamFixture.where(fixture: fixture.id)[0].try(:team_score).try(:total_goals) ? " - #{TeamFixture.where(fixture: fixture.id)[0].team_score.total_goals}" : "" %></td>
+
       <td class="text-center small">
-          <%= fixture.time.in_time_zone("Europe/Moscow").strftime("%b %d, %H:%M") %> at <%= fixture.venue.name %> <%= fixture.venue.pitch ? ", Pitch #{fixture.venue.pitch}" : ""%></td>
+        <% if user_signed_in? && policy(fixture).overdue? %>
+          <%= link_to "#{TeamFixture.where(fixture: fixture.id)[0].team.name} Score", new_team_fixture_team_score_path(TeamFixture.where(fixture: fixture.id)[0].id) %> - <%= link_to "#{TeamFixture.where(fixture: fixture.id)[1].team.name} Score", new_team_fixture_team_score_path(TeamFixture.where(fixture: fixture.id)[1].id) %>
+        <% else %>
+          <%= fixture.time.in_time_zone("Europe/Moscow").strftime("%b %d, %H:%M") %> at <%= fixture.venue.name %> <%= fixture.venue.pitch ? ", Pitch #{fixture.venue.pitch}" : ""%>
+        <% end %>
+      </td>
+
       <td class="text-right">
           <%=  TeamFixture.where(fixture: fixture.id)[1].try(:team_score).try(:total_goals) ? "#{TeamFixture.where(fixture: fixture.id)[1].team_score.total_goals} - " : "" %>
           <%= TeamFixture.where(fixture: fixture.id)[1].team.name %></td>
-      <% if user_signed_in? && policy(fixture).display_result_form %>
-      <td class="text-right">
-        Edit this fixture
-      </td>
-      <% end %>
+
     </tr>
 
 <% end %>
