@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180604172935) do
+ActiveRecord::Schema.define(version: 20180617080530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20180604172935) do
     t.bigint "venue_id"
     t.boolean "non_league", default: false
     t.bigint "season_id"
+    t.boolean "cancelled", default: false
     t.index ["season_id"], name: "index_fixtures_on_season_id"
     t.index ["venue_id"], name: "index_fixtures_on_venue_id"
   end
