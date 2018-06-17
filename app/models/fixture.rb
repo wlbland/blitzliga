@@ -8,6 +8,8 @@ class Fixture < ApplicationRecord
 
   # scope :for_team, ->(team) { where(team_fixture: team.team_fixtures).order(time: :desc) }
 
+  scope :valid, -> { where(cancelled: false)}
+
   scope :current_month, -> { where(time: (DateTime.now.beginning_of_month .. DateTime.now.end_of_month)) }
 
   scope :for_season, ->(season_number) { where(season: Season.find_by(number:season_number)) }

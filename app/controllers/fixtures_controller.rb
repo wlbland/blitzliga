@@ -51,7 +51,7 @@ class FixturesController < ApplicationController
   end
 
   def future
-    @fixtures = policy_scope(Fixture).future.order(time: :asc)
+    @fixtures = policy_scope(Fixture).future.valid.order(time: :asc)
   end
 
   def past
@@ -59,7 +59,7 @@ class FixturesController < ApplicationController
   end
 
   def next
-    @fixtures = Fixture.future.next.order(time: :asc)
+    @fixtures = Fixture.future.next.valid.order(time: :asc)
   end
 
   def overdue
