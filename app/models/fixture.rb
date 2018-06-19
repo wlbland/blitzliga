@@ -6,6 +6,8 @@ class Fixture < ApplicationRecord
   belongs_to :venue
   belongs_to :season
 
+  alias_attribute :display_name, :time
+
   # scope :for_team, ->(team) { where(team_fixture: team.team_fixtures).order(time: :desc) }
 
   scope :valid, -> { where(cancelled: false)}
