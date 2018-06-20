@@ -1,7 +1,10 @@
 class TeamFixture < ApplicationRecord
   belongs_to :team
   belongs_to :fixture
-  has_one :team_score
+  has_one :team_score, dependent: :destroy
+
+  alias_attribute :display_name, :id
+
 
   # scope :has_result, -> { joins(:team_score)}
 
