@@ -2,7 +2,10 @@ class TeamsController < ApplicationController
 
   # http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :table]
+
+  skip_after_action :verify_authorized, only: [:table]
+
 
   def index
     @teams = policy_scope(Team)
@@ -31,6 +34,11 @@ class TeamsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def table
+    @season = Season.find(params[:season_id]) if params[:season_id]
+    @teams = policy_scope(Team)
   end
 
   # def update

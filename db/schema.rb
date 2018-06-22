@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180617090714) do
+ActiveRecord::Schema.define(version: 20180621183730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180617090714) do
     t.boolean "non_league", default: false
     t.bigint "season_id"
     t.boolean "cancelled", default: false
+    t.boolean "void", default: false
     t.index ["season_id"], name: "index_fixtures_on_season_id"
     t.index ["venue_id"], name: "index_fixtures_on_venue_id"
   end
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(version: 20180617090714) do
     t.bigint "fixture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "outcome"
     t.index ["fixture_id"], name: "index_team_fixtures_on_fixture_id"
     t.index ["team_id"], name: "index_team_fixtures_on_team_id"
   end

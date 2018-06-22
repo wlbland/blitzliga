@@ -4,4 +4,5 @@ class Season < ApplicationRecord
 
   alias_attribute :display_name, :number
 
+
 end
