@@ -1,0 +1,14 @@
+
+Team 1 Goals
+
+<% Goal.for_team_score(TeamFixture.where(fixture: fixture.id)[0].team_score).each do |goal| %>
+    <%= goal.player.last_name %>
+<% end %>
+
+
+Team 2 Goals
+
+<% Goal.for_team_score(TeamFixture.where(fixture: fixture.id)[1].team_score).each do |goal| %>
+    <%= goal.player.last_name %>
+<% end %>
+

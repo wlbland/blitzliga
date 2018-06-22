@@ -19,13 +19,21 @@
             <% end %>
         <% else %>
           <%= fixture.time.in_time_zone("Europe/Moscow").strftime("%b %d, %H:%M") %> at <%= fixture.venue.name %> <%= fixture.venue.pitch ? ", Pitch #{fixture.venue.pitch}" : ""%>
+            <% if  (TeamFixture.where(fixture: fixture.id)[0].team_score && TeamFixture.where(fixture: fixture.id)[1].team_score ) %>
+              <%= render 'goal' %>
+            <% end %>
         <% end %>
       </td>
 
       <td class="text-right">
-          <%=  TeamFixture.where(fixture: fixture.id)[1].try(:team_score).try(:total_goals) ? "#{TeamFixture.where(fixture: fixture.id)[1].team_score.total_goals} - " : "" %>
+          <%=  TeamFixture.where(fixture: fixture.id)[1].try(:team_score).try(:total_goals) ? "#{TeamFixture.where(fixture: fixture.id)[1].team_score.total_goals} -  "" " : "" %>
           <%= TeamFixture.where(fixture: fixture.id)[1].team.name %></td>
 
     </tr>
 
+<!-- Goal.for_team_score(TeamFixture.where(fixture: fixture.id)[1].team_score).exists? ? Goal.for_team_score(TeamFixture.where(fixture: fixture.id)[1].team_score)
+ -->
+
 <% end %>
+
+
