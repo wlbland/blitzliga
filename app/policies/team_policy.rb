@@ -21,13 +21,13 @@ class TeamPolicy < ApplicationPolicy
 
   private
 
-  def user_is_admin?
-    user&.admin?
-  end
+  # def user_is_admin?
+  #   user&.admin?
+  # end
 
-  def user_is_captain?
-    user&.player&.captain == true
-  end
+  # def user_is_captain?
+  #   user&.player&.captain == true
+  # end
 
   def user_is_on_selected_team?
     user&.player&.team == record

@@ -11,6 +11,7 @@ class Player < ApplicationRecord
   scope :registered, ->{ where("registered = ?", true) }
   scope :unregistered, ->{ where("registered = ?", !true) }
 
+  alias_attribute :display_name, :last_name
 
 
   # define_attribute_methods :registered

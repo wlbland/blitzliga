@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-bordered table-striped ">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Team</th>
+          <th scope="col">Played</th>
+          <th scope="col">W</th>
+          <th scope="col">D</th>
+          <th scope="col">L</th>
+          <th scope="col">F</th>
+          <th scope="col">A</th>
+          <th scope="col">GD</th>
+          <th scope="col">Pts</th>
+        </tr>
+      </thead>
+      <tbody>
+          <%= if @teams
+              render @teams
+            else
+              render @team
+            end %>
+      </tbody>
+    </table>
+  </div>
+</div>

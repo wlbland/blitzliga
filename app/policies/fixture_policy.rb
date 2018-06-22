@@ -16,7 +16,8 @@ class FixturePolicy < ApplicationPolicy
   end
 
   def overdue?
-    (user.referee || user.admin) && record.time < Time.now && record.team_scores == []
+    (user.referee || user.admin) && record.time < Time.now
+    # && record.team_scores == []
   end
 
 end

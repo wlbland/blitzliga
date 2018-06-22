@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  # , controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: "registrations", passwords: "passwords" }
+
 
   # get '/auth/:provider/callback', to: 'sessions#create'
 
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  ActiveAdmin.routes(self)
+
+  resources :seasons, only: [:show, :index] do
+    resources :teams, only: [:show, :index] do
+      get "table", :on => :collection
+    end
+  end
 
   resources :teams do
     resources :players
@@ -30,6 +37,9 @@ Rails.application.routes.draw do
     resources :team_scores
   end
 
+  resources :team_scores, only: [:show] do
+    resources :goals
+  end
 
   get "/pages/:page" => "pages#show"
   get 'welcome/index'

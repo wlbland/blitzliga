@@ -1,0 +1,17 @@
+
+<% if team.games_played(@season) > 0 %>
+
+  <tr>
+    <th scope="row"><%= team.name %></th>
+    <td class="text-center small"> <%= team.games_played(@season) %> </td>
+    <td class="text-center small"> <%= team.victories(@season) %> </td>
+    <td class="text-center small"> <%= team.draws(@season) %> </td>
+    <td class="text-center small"> <%= team.defeats(@season) %> </td>
+    <td class="text-center small"> <%= team.goals_scored(@season) %> </td>
+    <td class="text-center small"> <%= team.goals_conceded(@season) %> </td>
+    <td class="text-center small"> <%= team.goal_difference(@season) %>  </td>
+    <td class="text-center small"> <%= team.points(@season) %> </td>
+  </tr>
+
+<% end %>
+

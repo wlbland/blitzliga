@@ -13,7 +13,7 @@
       <%= link_to "Full Fixtures", future_fixtures_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "Enter Results",  overdue_fixtures_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "Results", results_fixtures_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
-      <%= link_to "Tables", "/pages/tables", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
+      <%= link_to "Tables", table_season_teams_path(Season.most_recent), class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "Teams", teams_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "About Us", "/pages/about-us", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
 
@@ -29,9 +29,9 @@
               <%#<% end %>
 <!--             </li>
  -->            <li>
-              <%= link_to edit_user_registration_path do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
-              <% end %>
+              <%# <%= link_to edit_user_registration_path do %>
+                <!-- <i class="fa fa-cog"></i>  <%# <%= t(".settings", default: "Settings") %> -->
+              <%# <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>

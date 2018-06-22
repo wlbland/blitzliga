@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 # ruby '2.5.1'
 
+gem 'rails', '5.1.5'
+
 
 gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.5'
 gem 'puma'
-gem 'rails', '5.1.5'
 gem 'redis'
 
 gem 'autoprefixer-rails'
