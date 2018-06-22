@@ -38,6 +38,11 @@ class Fixture < ApplicationRecord
     joins(:team_fixtures).group("fixtures.id").merge(TeamFixture.for_team(team))
   }
 
+  # scope :all_team_scores_for_team, -> (team) {
+  #   # joins(:team_fixture).group("team_scores.id").
+  #   joins(:team_scores).group("team_scores.id").merge(Fixture.for_team(team))
+  # }
+
  # fix tomorrow
   # scope :scores_for_game, ->(team) {
   #   joins(:team_scores).group("fixtures.id").merge(TeamFixture.for_team(team))

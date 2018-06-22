@@ -38,7 +38,8 @@ class TeamsController < ApplicationController
 
   def table
     @season = Season.find(params[:season_id]) if params[:season_id]
-    @teams = policy_scope(Team)
+    @teams = policy_scope(Team).sort {|a,b| a.goal_difference(@season) <=> b.goal_difference(@season) }
+    .sort {|a,b| a.points(@season) <=> b.points(@season) }.reverse
   end
 
   # def update

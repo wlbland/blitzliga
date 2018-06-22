@@ -30,9 +30,12 @@ class Team < ApplicationRecord
   end
 
   def goals_conceded(season)
-    Fixture.for_team(self).team_scores.sum(:total_goals) - self.goals_scored(season)
+    TeamScore.for_season_object(season).for_team(self).sum(:goals_conceded)
   end
 
+  def goal_difference(season)
+    goals_scored(season) - goals_conceded(season)
+  end
 
   def points(season)
     ( self.victories(season) * 3 ) + ( self.draws(season) )

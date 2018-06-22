@@ -9,15 +9,19 @@ class TeamFixture < ApplicationRecord
 
   enum outcome: { defeat: 0, draw: 1, victory: 2}
 
-  scope :for_team, ->(team) { where(team: team) }
+  scope :for_fixture, -> (fixture) { where(fixture: fixture) }
 
-  scope :victories, -> { where(outcome: 2)}
+  scope :for_team, -> (team) { where(team: team) }
 
-  scope :draws, -> { where(outcome: 1)}
+  # scope :for_and_against_team, -> (team) { joins(:fixture).merge(Fixture.all).where(team: team) }
 
-  scope :defeats, -> { where(outcome: 0)}
+  scope :victories, -> { where(outcome: 2) }
 
-  scope :for_season_object, -> (season) {joins(:fixture).merge(Fixture.for_season_object(season))}
+  scope :draws, -> { where(outcome: 1) }
+
+  scope :defeats, -> { where(outcome: 0) }
+
+  scope :for_season_object, -> (season) {joins(:fixture).merge(Fixture.for_season_object(season)) }
 
 
   def maximum_of_two

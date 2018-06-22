@@ -37,6 +37,9 @@ Rails.application.routes.draw do
     resources :team_scores
   end
 
+  resources :team_scores, only: [:show] do
+    resources :goals
+  end
 
   get "/pages/:page" => "pages#show"
   get 'welcome/index'
