@@ -2,7 +2,7 @@ ActiveAdmin.register Fixture do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-  permit_params :time, :venue_id, :non_league, :season_id
+  permit_params :time, :venue_id, :non_league, :season_id, :void
 #
 # or
 #
@@ -19,6 +19,7 @@ ActiveAdmin.register Fixture do
       f.input :venue
       f.input :non_league
       f.input :season
+      f.input :void
     end
     f.actions
   end
