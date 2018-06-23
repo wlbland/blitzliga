@@ -18,9 +18,9 @@
               <%= link_to "#{TeamFixture.where(fixture: fixture.id)[1].team.name} Score", new_team_fixture_team_score_path(TeamFixture.where(fixture: fixture.id)[1].id) %>
             <% end %>
         <% else %>
+           <%= render 'goal', :fixture => fixture %>
           <%= fixture.time.in_time_zone("Europe/Moscow").strftime("%b %d, %H:%M") %> at <%= fixture.venue.name %> <%= fixture.venue.pitch ? ", Pitch #{fixture.venue.pitch}" : ""%>
             <% if  (TeamFixture.where(fixture: fixture.id)[0].team_score && TeamFixture.where(fixture: fixture.id)[1].team_score ) %>
-              <%= render 'goal' %>
             <% end %>
         <% end %>
       </td>
