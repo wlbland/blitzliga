@@ -63,7 +63,7 @@ class FixturesController < ApplicationController
   end
 
   def overdue
-    @fixtures = policy_scope(Fixture).past.no_result.order(time: :asc)
+    @fixtures = policy_scope(Fixture).past.valid.no_result.order(time: :asc)
   end
 
   def results
