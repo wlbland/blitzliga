@@ -11,19 +11,25 @@
         <% if user_signed_in? && policy(fixture).overdue? %>
             <%# <%= link_to "add a score", new_team_score_goal_path(TeamScore.last) %>
             <% if TeamFixture.where(fixture: fixture.id)[0].team_score %>
-            <%= link_to "#{TeamFixture.where(fixture: fixture.id)[0].team.name} Scorer(s)", new_team_score_goal_path(TeamFixture.where(fixture: fixture.id)[0].team_score.id) %>
+              <%= link_to " Add #{TeamFixture.where(fixture: fixture.id)[0].team.name} Scorer(s)", new_team_score_goal_path(TeamFixture.where(fixture: fixture.id)[0].team_score.id) %>
+              <% Goal.for_team_score(TeamFixture.where(fixture: fixture.id)[0].team_score).each do |goal| %>
+                <%= "#{goal.player.last_name};" %>
+              <% end %>
             <% else %>
               <%= link_to "#{TeamFixture.where(fixture: fixture.id)[0].team.name} Score", new_team_fixture_team_score_path(TeamFixture.where(fixture: fixture.id)[0].id) %>
-              -
             <% end %>
+            -
             <% if TeamFixture.where(fixture: fixture.id)[1].team_score %>
-            <%=  link_to "#{TeamFixture.where(fixture: fixture.id)[1].team.name} Scorer(s)", new_team_score_goal_path(TeamFixture.where(fixture: fixture.id)[1].team_score.id) %>
+              <%=  link_to "Add #{TeamFixture.where(fixture: fixture.id)[1].team.name} Scorer(s)", new_team_score_goal_path(TeamFixture.where(fixture: fixture.id)[1].team_score.id) %>
+              <% Goal.for_team_score(TeamFixture.where(fixture: fixture.id)[1].team_score).each do |goal| %>
+                <%= "#{goal.player.last_name};" %>
+              <% end %>
             <% else %>
               <%= link_to "#{TeamFixture.where(fixture: fixture.id)[1].team.name} Score", new_team_fixture_team_score_path(TeamFixture.where(fixture: fixture.id)[1].id) %>
             <% end %>
         <% else %>
           <%# <%= render 'goal', :fixture => fixture %>
-          <%= fixture.time.in_time_zone("Europe/Moscow").strftime("%b %d, %H:%M") %> at <%= fixture.venue.name %> <%= fixture.venue.pitch ? ", Pitch #{fixture.venue.pitch}" : ""%>
+          <%# <%= fixture.time.in_time_zone("Europe/Moscow").strftime("%b %d, %H:%M") %> <!-- at --> <%# <%= fixture.venue.name %> <%# <%= fixture.venue.pitch ? ", Pitch #{fixture.venue.pitch}" : ""%>
             <% if  (TeamFixture.where(fixture: fixture.id)[0].team_score && TeamFixture.where(fixture: fixture.id)[1].team_score ) %>
             <% end %>
         <% end %>
