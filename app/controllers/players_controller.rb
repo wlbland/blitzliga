@@ -13,7 +13,11 @@ class PlayersController < ApplicationController
     @team = Team.find(params[:team_id])
     @player = @team.players.create(player_params)
     authorize @player
-    redirect_to team_path(@team)
+    if @player.save
+      redirect_to team_path(@team)
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -46,7 +50,7 @@ class PlayersController < ApplicationController
   private
 
     def player_params
-      params.require(:player).permit(:first_name, :last_name, :team_id, :registered, :team)
+      params.require(:player).permit(:first_name, :last_name, :team_id, :registered)
     end
 
 end

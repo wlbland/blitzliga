@@ -6,7 +6,7 @@ class Player < ApplicationRecord
   belongs_to :user, optional: true
   has_many :goals
 
-  validates :code, uniqueness: true
+  # validates :code, uniqueness: true
 
   scope :registered, -> { where("registered = ?", true) }
   scope :unregistered, -> { where("registered = ?", !true) }

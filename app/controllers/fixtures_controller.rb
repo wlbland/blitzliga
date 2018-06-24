@@ -78,6 +78,6 @@ class FixturesController < ApplicationController
   private
 
     def fixture_params
-      params.require(:team, :fixture).permit(time)
+      params.require(:team, :fixture).permit(:time)
     end
 end

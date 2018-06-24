@@ -11,7 +11,7 @@ class PlayerPolicy < ApplicationPolicy
 
 
   def create?
-    user_is_admin? || (user_is_captain? && user_is_on_selected_team?)
+    user_is_admin? || (user_is_captain? && user_is_on_selected_team?) || user.referee
   end
 
   def update?
