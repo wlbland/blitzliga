@@ -15,15 +15,15 @@ class Team < ApplicationRecord
   end
 
   def victories(season)
-    TeamFixture.for_season_object(season).for_team(self).victories.length
+    TeamFixture.for_season_object(season).not_void.for_team(self).victories.length
   end
 
   def draws(season)
-    TeamFixture.for_season_object(season).for_team(self).draws.length
+    TeamFixture.for_season_object(season).not_void.for_team(self).draws.length
   end
 
   def defeats(season)
-    TeamFixture.for_season_object(season).for_team(self).defeats.length
+    TeamFixture.for_season_object(season).not_void.for_team(self).defeats.length
   end
 
   def goals_scored(season)
