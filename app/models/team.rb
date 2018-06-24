@@ -10,7 +10,8 @@ class Team < ApplicationRecord
 
 
   def games_played(season)
-    fixtures.not_void.league.result_recorded.for_season_object(season).length
+    # Fixture.not_void.league.result_recorded.for_season_object(season).for_team(self).length
+    ( victories(season) + draws(season) + defeats(season) )
   end
 
   def victories(season)
