@@ -8,8 +8,9 @@ class Player < ApplicationRecord
 
   validates :code, uniqueness: true
 
-  scope :registered, ->{ where("registered = ?", true) }
-  scope :unregistered, ->{ where("registered = ?", !true) }
+  scope :registered, -> { where("registered = ?", true) }
+  scope :unregistered, -> { where("registered = ?", !true) }
+  scope :for_team, ->(team) { where(team: team.id) }
 
   alias_attribute :display_name, :last_name
 

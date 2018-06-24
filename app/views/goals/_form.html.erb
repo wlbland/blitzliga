@@ -1,4 +1,9 @@
+<div>
   <%= form_with(model: [ @team_score, @team_score.goals.build ], local: true) do |form| %>
-      <%= f.collection_select(:player_id, Player.all, :id, :last_name) %>
+      <%= form.collection_select(:player_id, Player.for_team(@team_score.team), :id, :last_name) %>
+      <%= form.button :submit, class: "cta form__btn" %>
   <% end %>
 
+  Is the goal scorer missing from this list?  <%= link_to "Add a player for this team",  new_team_player_path(@team_score.team) %>
+
+</div>

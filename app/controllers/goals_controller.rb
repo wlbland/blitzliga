@@ -1,7 +1,7 @@
 class GoalsController < ApplicationController
 
   def new
-    @goal = Player.new
+    @goal = Goal.new
     @team_score = TeamScore.find(params[:team_score_id])
     authorize(@goal)
   end
@@ -10,7 +10,11 @@ class GoalsController < ApplicationController
     @team_score = TeamScore.find(params[:team_score_id])
     @goal = @team_score.goals.create(goal_params)
     authorize @goal
-    redirect_to  overdue_fixtures_path
+    if @goal.save
+      redirect_to results_fixtures_path
+    else
+      render :new
+    end
   end
 
 
@@ -26,7 +30,7 @@ class GoalsController < ApplicationController
   private
 
     def goal_params
-      params.require(:team_score).permit(:player_id, :team_score_id)
+      params.require(:goal).permit(:player_id, :team_score_id)
     end
 
 end

@@ -1,7 +1,8 @@
 <div class="container">
-  <h1>New Goal</h1>
+  <h1>New <%= @team_score.team.name %> Goal from <%= @team_score.fixture.time.in_time_zone("Europe/Moscow").strftime("%b %d, %H:%M") %></h1>
 
   <%= render 'form' %>
 
-  <%= link_to 'Back', overdue_fixtures_path %>
+<br />
+  <%= link_to 'Add another result', overdue_fixtures_path %> - <%= link_to 'Add goal scorer for a different team', results_fixtures_path %>
 </div>

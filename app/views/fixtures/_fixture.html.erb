@@ -10,11 +10,15 @@
       <td class="text-center small">
         <% if user_signed_in? && policy(fixture).overdue? %>
             <%# <%= link_to "add a score", new_team_score_goal_path(TeamScore.last) %>
-            <% unless TeamFixture.where(fixture: fixture.id)[0].team_score %>
+            <% if TeamFixture.where(fixture: fixture.id)[0].team_score %>
+            <%= link_to "#{TeamFixture.where(fixture: fixture.id)[0].team.name} Scorer(s)", new_team_score_goal_path(TeamFixture.where(fixture: fixture.id)[0].team_score.id) %>
+            <% else %>
               <%= link_to "#{TeamFixture.where(fixture: fixture.id)[0].team.name} Score", new_team_fixture_team_score_path(TeamFixture.where(fixture: fixture.id)[0].id) %>
               -
             <% end %>
-            <% unless TeamFixture.where(fixture: fixture.id)[1].team_score %>
+            <% if TeamFixture.where(fixture: fixture.id)[1].team_score %>
+            <%=  link_to "#{TeamFixture.where(fixture: fixture.id)[1].team.name} Scorer(s)", new_team_score_goal_path(TeamFixture.where(fixture: fixture.id)[1].team_score.id) %>
+            <% else %>
               <%= link_to "#{TeamFixture.where(fixture: fixture.id)[1].team.name} Score", new_team_fixture_team_score_path(TeamFixture.where(fixture: fixture.id)[1].id) %>
             <% end %>
         <% else %>
