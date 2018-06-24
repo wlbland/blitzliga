@@ -27,11 +27,11 @@ class Team < ApplicationRecord
   end
 
   def goals_scored(season)
-    TeamScore.for_season_object(season).for_team(self).sum(:total_goals)
+    TeamScore.for_season_object(season).not_void.for_team(self).sum(:total_goals)
   end
 
   def goals_conceded(season)
-    TeamScore.for_season_object(season).for_team(self).sum(:goals_conceded)
+    TeamScore.for_season_object(season).not_void.for_team(self).sum(:goals_conceded)
   end
 
   def goal_difference(season)

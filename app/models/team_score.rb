@@ -18,6 +18,12 @@ class TeamScore < ApplicationRecord
     joins(:team_fixture).merge(TeamFixture.for_team(team))
   }
 
+  scope :not_void, -> {
+    joins(:team_fixture).merge(TeamFixture.not_void)
+  }
+
+
+
   # scope :all_team_scores_for_team, -> (team) {
   #   # joins(:team_fixture).group("team_scores.id").
   #   joins(:fixture).group("team_scores.id").merge(Fixture.for_team(team))
