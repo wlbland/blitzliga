@@ -5,25 +5,24 @@
       <th scope="row">  <%= link_to "S#{fixture.season.number} - #{fixture.match_day_number unless fixture.non_league}", fixture_path(fixture) %> <%= " *" if fixture.void %></th>
       <td class="text-left">
           <%= TeamFixture.where(fixture: fixture.id)[0].team.name %>
-          <%=  TeamFixture.where(fixture: fixture.id)[0].try(:team_score).try(:total_goals) ? " - #{TeamFixture.where(fixture: fixture.id)[0].team_score.total_goals}" : "" %></td>
-
+          <%=  TeamFixture.where(fixture: fixture.id)[0].try(:team_score).try(:total_goals) ? " - #{TeamFixture.where(fixture: fixture.id)[0].team_score.total_goals}" : "" %>
+      </td>
+      <td class="text-left small">
+        <% Goal.for_team_score(TeamFixture.where(fixture: fixture.id)[0].team_score).each do |goal| %>
+                <%= "#{goal.player.last_name};" %>
+        <% end %>
+      </td>
       <td class="text-center small">
         <% if user_signed_in? && policy(fixture).overdue? %>
             <%# <%= link_to "add a score", new_team_score_goal_path(TeamScore.last) %>
             <% if TeamFixture.where(fixture: fixture.id)[0].team_score %>
               <%= link_to " Add #{TeamFixture.where(fixture: fixture.id)[0].team.name} Scorer(s)", new_team_score_goal_path(TeamFixture.where(fixture: fixture.id)[0].team_score.id) %>
-              <% Goal.for_team_score(TeamFixture.where(fixture: fixture.id)[0].team_score).each do |goal| %>
-                <%= "#{goal.player.last_name};" %>
-              <% end %>
             <% else %>
               <%= link_to "#{TeamFixture.where(fixture: fixture.id)[0].team.name} Score", new_team_fixture_team_score_path(TeamFixture.where(fixture: fixture.id)[0].id) %>
             <% end %>
             -
             <% if TeamFixture.where(fixture: fixture.id)[1].team_score %>
               <%=  link_to "Add #{TeamFixture.where(fixture: fixture.id)[1].team.name} Scorer(s)", new_team_score_goal_path(TeamFixture.where(fixture: fixture.id)[1].team_score.id) %>
-              <% Goal.for_team_score(TeamFixture.where(fixture: fixture.id)[1].team_score).each do |goal| %>
-                <%= "#{goal.player.last_name};" %>
-              <% end %>
             <% else %>
               <%= link_to "#{TeamFixture.where(fixture: fixture.id)[1].team.name} Score", new_team_fixture_team_score_path(TeamFixture.where(fixture: fixture.id)[1].id) %>
             <% end %>
@@ -34,7 +33,11 @@
             <% end %>
         <% end %>
       </td>
-
+      <td class="text-right small">
+        <% Goal.for_team_score(TeamFixture.where(fixture: fixture.id)[1].team_score).each do |goal| %>
+                <%= "#{goal.player.last_name};" %>
+        <% end %>
+      </td>
       <td class="text-right">
           <%=  TeamFixture.where(fixture: fixture.id)[1].try(:team_score).try(:total_goals) ? "#{TeamFixture.where(fixture: fixture.id)[1].team_score.total_goals} -  "" " : "" %>
           <%= TeamFixture.where(fixture: fixture.id)[1].team.name %></td>
