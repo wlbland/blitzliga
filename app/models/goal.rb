@@ -4,5 +4,4 @@ class Goal < ApplicationRecord
 
   scope :for_team_score, -> (team_score) {where(team_score: team_score)}
 
-
 end

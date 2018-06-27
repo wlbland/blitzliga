@@ -13,11 +13,13 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :teams do
     resources :players
   end
 
-  resources :players do
+  resources :players, only: [:top_scorers] do
+    get "top_scorers", :on => :collection
   end
 
   root 'fixtures#next'
