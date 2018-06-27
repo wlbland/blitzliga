@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Top Scorers </h1>
+  <p>This tables includes goals scored in non-league matches. Those goals will not be taken into account for the top scorer award.</p>
+
+    <%= if @players
+              render @players
+        else
+              render @player
+    end %>
+
+  <%= link_to 'Teams', teams_path %>
+</div>

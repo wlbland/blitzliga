@@ -14,6 +14,17 @@ class Player < ApplicationRecord
 
   alias_attribute :display_name, :last_name
 
+  def goals_scored
+    self.goals.length
+  end
+
+    # TeamScore.for_season_object(Season.last).not_void.each do | team_score |
+    #   team_score.goals each do | goal |
+    #     puts "#{goal.player.last_name} Scored"
+    #   end
+    # end
+
+
 
   # define_attribute_methods :registered
 

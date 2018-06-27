@@ -5,6 +5,7 @@
      <%# <% if policy(player).update? %>
       <%#<%= link_to "Edit player", edit_player_path(@player) %>
      <%#<% end %>
+     <%= " ---- Goals: #{player.goals_scored}" if player.goals_scored >0 %>
      <% if policy(player).update? %>
        <% if player.registered? %>
           <%= form_for player, :html => {:class => 'form-inline'} do |f| %>

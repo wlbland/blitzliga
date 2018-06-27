@@ -15,6 +15,7 @@
       <%= link_to "Results", results_fixtures_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "Tables", table_season_teams_path(Season.most_recent), class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "Teams", teams_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
+      <%= link_to "Top Scorers",  top_scorers_players_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "About Us", "/pages/about-us", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
 
 
@@ -47,6 +48,7 @@
       <%= link_to "Results", results_fixtures_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "Tables", table_season_teams_path(Season.most_recent), class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "Teams", teams_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
+      <%= link_to "Top Scorers",  top_scorers_players_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
       <%= link_to "About Us", "/pages/about-us", class: "navbar-blitzliga-item navbar-blitzliga-link" %>
 
@@ -62,6 +64,8 @@
         <%# <%= link_to "Enter Results",  overdue_fixtures_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %>
         <li><%= link_to "Tables", table_season_teams_path(Season.most_recent), class: "navbar-blitzliga-item navbar-blitzliga-link" %></li>
         <li><%= link_to "Results", results_fixtures_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %></li>
+        <li><%= link_to "Teams", teams_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %></li>
+        <li><%= link_to "Top Scorers",  top_scorers_players_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %></li>
         <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %></li>
         <li><%= link_to "Teams", teams_path, class: "navbar-blitzliga-item navbar-blitzliga-link" %></li>
       </ul>
