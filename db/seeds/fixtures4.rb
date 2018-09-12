@@ -2,7 +2,7 @@
 
   coalition = Team.find_by(name: "Coalition")
   happy_sundays = Team.find_by(name: "Happy Sundays")
-  desperado = Team.find_by(name: "Desperado")
+  vverkh = Team.find_by(name: "Vverkh")
   red_star = Team.find_by(name: "Red Star")
   freshmen = Team.find_by(name: "Freshmen")
   unsanctionables = Team.find_by(name: "The Unsanctionables")
@@ -25,37 +25,35 @@ scheduled_matches =
 [{team_1: galactics, team_2: coalition, time: DateTime.new(2018,9,16,12,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: unsanctionables, team_2: red_star, time: DateTime.new(2018,9,16,12,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: happy_sundays, team_2: freshmen, time: DateTime.new(2018,9,16,13,0,0,'+03:00'), venue: luzhniki, season: s23},
-{team_1: cavalry, team_2: desperado, time: DateTime.new(2018,9,16,13,0,0,'+03:00'), venue: luzhniki, season: s23},
+{team_1: cavalry, team_2: vverkh, time: DateTime.new(2018,9,16,13,0,0,'+03:00'), venue: luzhniki, season: s23},
 
-{team_1: , team_2: , time: DateTime.new(2018,12,30,0,0,0,'+03:00'), venue: luzhniki, season: s23},
-{team_1: , team_2: , time: DateTime.new(2018,12,30,0,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: red_star, team_2: galactics, time: DateTime.new(2018,9,23,12,0,0,'+03:00'), venue: luzhniki, season: s21},
 {team_1: freshmen, team_2: unsanctionables, time: DateTime.new(2018,9,23,12,0,0,'+03:00'), venue: luzhniki, season: s21},
-{team_1: desperado, team_2: happy_sundays, time: DateTime.new(2018,9,23,13,0,0,'+03:00'), venue: luzhniki, season: s21},
+{team_1: vverkh, team_2: happy_sundays, time: DateTime.new(2018,9,23,13,0,0,'+03:00'), venue: luzhniki, season: s21},
 {team_1: coalition, team_2: cavalry, time: DateTime.new(2018,9,23,13,0,0,'+03:00'), venue: luzhniki, season: s21},
 
 {team_1: galactics, team_2: freshmen, time: DateTime.new(2018,9,30,12,0,0,'+03:00'), venue: luzhniki, season: s23},
-{team_1: unsanctionables, team_2: desperado, time: DateTime.new(2018,9,30,12,0,0,'+03:00'), venue: luzhniki, season: s23},
+{team_1: unsanctionables, team_2: vverkh, time: DateTime.new(2018,9,30,12,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: happy_sundays, team_2: cavalry, time: DateTime.new(2018,9,30,12,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: red_star, team_2: coalition, time: DateTime.new(2018,9,30,12,0,0,'+03:00'), venue: luzhniki, season: s23},
-{team_1: desperado, team_2: galactics, time: DateTime.new(2018,9,30,13,0,0,'+03:00'), venue: luzhniki, season: s23},
+{team_1: vverkh, team_2: galactics, time: DateTime.new(2018,9,30,13,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: cavalry, team_2: unsanctionables, time: DateTime.new(2018,9,30,13,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: coalition, team_2: happy_sundays, time: DateTime.new(2018,9,30,13,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: freshmen, team_2: red_star, time: DateTime.new(2018,9,30,13,0,0,'+03:00'), venue: luzhniki, season: s23},
 
 {team_1: galactics, team_2: cavalry, time: DateTime.new(2018,10,7,12,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: unsanctionables, team_2: happy_sundays, time: DateTime.new(2018,10,7,12,0,0,'+03:00'), venue: luzhniki, season: s23},
-{team_1: red_star, team_2: desperado, time: DateTime.new(2018,10,7,13,0,0,'+03:00'), venue: luzhniki, season: s23},
+{team_1: red_star, team_2: vverkh, time: DateTime.new(2018,10,7,13,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: freshmen, team_2: coalition, time: DateTime.new(2018,10,7,13,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: happy_sundays, team_2: galactics, time: DateTime.new(2018,10,14,12,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: coalition, team_2: unsanctionables, time: DateTime.new(2018,10,14,12,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: cavalry, team_2: red_star, time: DateTime.new(2018,10,14,12,0,0,'+03:00'), venue: luzhniki, season: s23},
-{team_1: desperado, team_2: freshmen, time: DateTime.new(2018,10,14,12,0,0,'+03:00'), venue: luzhniki, season: s23},
+{team_1: vverkh, team_2: freshmen, time: DateTime.new(2018,10,14,12,0,0,'+03:00'), venue: luzhniki, season: s23},
 
 {team_1: galactics, team_2: unsanctionables, time: DateTime.new(2018,10,14,13,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: red_star, team_2: happy_sundays, time: DateTime.new(2018,10,14,13,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: freshmen, team_2: cavalry, time: DateTime.new(2018,10,14,13,0,0,'+03:00'), venue: luzhniki, season: s23},
-{team_1: desperado, team_2: coalition, time: DateTime.new(2018,10,14,13,0,0,'+03:00'), venue: luzhniki, season: s23},
+{team_1: vverkh, team_2: coalition, time: DateTime.new(2018,10,14,13,0,0,'+03:00'), venue: luzhniki, season: s23},
 
 {team_1: a_team, team_2: d_team, time: DateTime.new(2018,10,21,11,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: b_team, team_2: c_team, time: DateTime.new(2018,10,21,11,0,0,'+03:00'), venue: luzhniki, season: s23},
