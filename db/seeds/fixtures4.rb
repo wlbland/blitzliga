@@ -27,10 +27,10 @@ scheduled_matches =
 {team_1: happy_sundays, team_2: freshmen, time: DateTime.new(2018,9,16,13,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: cavalry, team_2: vverkh, time: DateTime.new(2018,9,16,13,0,0,'+03:00'), venue: luzhniki, season: s23},
 
-{team_1: red_star, team_2: galactics, time: DateTime.new(2018,9,23,12,0,0,'+03:00'), venue: luzhniki, season: s21},
-{team_1: freshmen, team_2: unsanctionables, time: DateTime.new(2018,9,23,12,0,0,'+03:00'), venue: luzhniki, season: s21},
-{team_1: vverkh, team_2: happy_sundays, time: DateTime.new(2018,9,23,13,0,0,'+03:00'), venue: luzhniki, season: s21},
-{team_1: coalition, team_2: cavalry, time: DateTime.new(2018,9,23,13,0,0,'+03:00'), venue: luzhniki, season: s21},
+{team_1: red_star, team_2: galactics, time: DateTime.new(2018,9,23,12,0,0,'+03:00'), venue: luzhniki, season: s23},
+{team_1: freshmen, team_2: unsanctionables, time: DateTime.new(2018,9,23,12,0,0,'+03:00'), venue: luzhniki, season: s23},
+{team_1: vverkh, team_2: happy_sundays, time: DateTime.new(2018,9,23,13,0,0,'+03:00'), venue: luzhniki, season: s23},
+{team_1: coalition, team_2: cavalry, time: DateTime.new(2018,9,23,13,0,0,'+03:00'), venue: luzhniki, season: s23},
 
 {team_1: galactics, team_2: freshmen, time: DateTime.new(2018,9,30,12,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: unsanctionables, team_2: vverkh, time: DateTime.new(2018,9,30,12,0,0,'+03:00'), venue: luzhniki, season: s23},
