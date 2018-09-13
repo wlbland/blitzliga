@@ -17,9 +17,9 @@
   c_team = Team.find_by(name: "3rd Placed")
   d_team = Team.find_by(name: "4th Placed")
 
-  luzhniki = Venue.create(name: "Luzhniki", pitch: "6")
+  luzhniki = Venue.find_by(name: "Luzhniki", pitch: "6")
 
-  s23 = Season.create(number: 23)
+  s23 = Season.find_by(number: 23)
 
 scheduled_matches =
 [{team_1: galactics, team_2: coalition, time: DateTime.new(2018,9,16,12,0,0,'+03:00'), venue: luzhniki, season: s23},
@@ -55,9 +55,9 @@ scheduled_matches =
 {team_1: freshmen, team_2: cavalry, time: DateTime.new(2018,10,14,13,0,0,'+03:00'), venue: luzhniki, season: s23},
 {team_1: vverkh, team_2: coalition, time: DateTime.new(2018,10,14,13,0,0,'+03:00'), venue: luzhniki, season: s23},
 
-{team_1: a_team, team_2: d_team, time: DateTime.new(2018,10,21,11,0,0,'+03:00'), venue: luzhniki, season: s23},
-{team_1: b_team, team_2: c_team, time: DateTime.new(2018,10,21,11,0,0,'+03:00'), venue: luzhniki, season: s23},
-{team_1: winner_1, team_2: winner_2, time: DateTime.new(2018,10,21,12,0,0,'+03:00'), venue: luzhniki, season: s23}]
+{team_1: a_team, team_2: d_team, time: DateTime.new(2018,10,21,11,0,0,'+03:00'), venue: luzhniki, season: s23, non_league: true},
+{team_1: b_team, team_2: c_team, time: DateTime.new(2018,10,21,11,0,0,'+03:00'), venue: luzhniki, season: s23, non_league: true},
+{team_1: winner_1, team_2: winner_2, time: DateTime.new(2018,10,21,12,0,0,'+03:00'), venue: luzhniki, season: s23, non_league: true}]
 
 
 
