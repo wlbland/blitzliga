@@ -34,6 +34,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 
 
+
 # Don't use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
