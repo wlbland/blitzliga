@@ -31,8 +31,7 @@ gem "recaptcha", require: "recaptcha/rails"
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem 'dotenv-rails', groups: [:development, :test]
-
-
+gem 'jquery-rails'
 
 
 # Don't use sqlite3 as the database for Active Record
