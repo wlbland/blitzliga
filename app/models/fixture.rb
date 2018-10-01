@@ -3,6 +3,8 @@ class Fixture < ApplicationRecord
   has_many :teams, through: :team_fixtures
   # check this line
   has_many :team_scores, through: :team_fixtures
+  has_many :fixture_photos
+   accepts_nested_attributes_for :fixture_photos
   belongs_to :venue
   belongs_to :season
 

@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-
-
-  # get '/auth/:provider/callback', to: 'sessions#create'
-
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   ActiveAdmin.routes(self)
 
@@ -12,7 +8,6 @@ Rails.application.routes.draw do
       get "table", :on => :collection
     end
   end
-
 
   resources :teams do
     resources :players
@@ -23,7 +18,8 @@ Rails.application.routes.draw do
   end
 
   root 'fixtures#next'
-
+  get "fixtures/:id/add_photos", to: "fixtures#add_photos"
+  patch "fixtures/:id/add_photos", to: "fixtures#add_photos", as: "add"
 
   resources :fixtures, only: [:show, :index] do
     get "next", :on => :collection

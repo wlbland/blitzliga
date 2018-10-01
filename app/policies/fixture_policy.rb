@@ -15,6 +15,10 @@ class FixturePolicy < ApplicationPolicy
     user.admin
   end
 
+  def add_photos?
+    true # security check required 
+  end
+
   def overdue?
     (user.referee || user.admin) && record.time < Time.now
     # && record.team_scores == []
