@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-3">
+      <%= simple_form_for(@fixture, url: add_path, html: { class: 'form-horizontal' }) do |f| %>
+        <!-- check for previous photo adds -->
+        <% unless @fixture.fixture_photos.empty? %>
+          <h4>Warning: Some photos have already been added. Check you want to continue</h4>
+        <% end %>
+        <!-- the magic -->
+        <%= f.fields_for :fixture_photos, @new_photo do |p| %>
+          <%= p.file_field :photo, :multiple => true, name: "fixture_photos[photo][]" %>
+        <% end %>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

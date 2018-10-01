@@ -5,7 +5,7 @@ gem 'rails', '5.1.5'
 
 
 gem 'devise'
-gem 'figaro'
+# gem 'figaro' #not maintained anymore, replaced with dotenv
 gem 'jbuilder', '~> 2.5'
 gem 'puma'
 gem 'redis'
@@ -39,7 +39,6 @@ gem 'jquery-rails'
 
 # Use postgres as the database for Active Record
 gem 'pg'
-
 gem 'turbolinks', '~> 5.0.0'
 
 # Use Capistrano for deployment
@@ -51,6 +50,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :development do
