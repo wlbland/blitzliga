@@ -7,11 +7,12 @@
           <h4>Warning: Some photos have already been added. Check you want to continue</h4>
         <% end %>
         <!-- the magic -->
+        <h3>All Photos are added to the cloud so please be patient once you hit submit!</h3>
         <%= f.fields_for :fixture_photos, @new_photo do |p| %>
           <%= p.file_field :photo, :multiple => true, name: "fixture_photos[photo][]" %>
         <% end %>
         <div class="actions">
-          <%= f.submit %>
+          <%= f.submit "Add Photos"%>
         </div>
       <% end %>
     </div>

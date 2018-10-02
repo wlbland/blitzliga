@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get "fixtures/:id/add_photos", to: "fixtures#add_photos"
   patch "fixtures/:id/add_photos", to: "fixtures#add_photos", as: "add"
 
+  resources :fixture_photos, only: :index
+
   resources :fixtures, only: [:show, :index] do
     get "next", :on => :collection
     get "past", :on => :collection
