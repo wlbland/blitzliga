@@ -10,7 +10,7 @@
       <th colspan="3"></th>
     </tr>
 
-    <% @teams.has_registered_players.distinct.each do |team| %>
+    <% @teams.bl_display.has_registered_players.distinct.each do |team| %>
       <tr>
         <td><%= team.name %></td>
         <td><%= link_to 'See Players', team_path(team) %></td>
