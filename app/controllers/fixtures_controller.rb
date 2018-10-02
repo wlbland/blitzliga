@@ -43,7 +43,7 @@ class FixturesController < ApplicationController
       respond_to do |format|
         if @fixture.save
           params[:fixture_photos]['photo'].each do |a|
-            @fixture_photo = @fixture.fixture_photos.create!(:photo => a, :fixture_id => @fixture.id)
+            @fixture_photo = FixturePhoto.create!(:photo => a, :fixture_id => @fixture.id)
           end
          format.html { redirect_to @fixture, notice: 'Photos were successfully added.' }
         else
