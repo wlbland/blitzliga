@@ -8,7 +8,7 @@ class Team < ApplicationRecord
 
   scope :has_registered_players, -> {joins(:players)}
 
-  scope :bl_display, -> { where("display = ?", true) }
+  scope :bl_display, -> { where("bliga_display = ?", true) }
 
 
   def games_played(season)
