@@ -8,6 +8,8 @@ class Team < ApplicationRecord
 
   scope :has_registered_players, -> {joins(:players)}
 
+  scope :bl_display, -> { where("display = ?", true) }
+
 
   def games_played(season)
     # Fixture.not_void.league.result_recorded.for_season_object(season).for_team(self).length
