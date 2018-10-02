@@ -16,7 +16,7 @@ class FixturePolicy < ApplicationPolicy
   end
 
   def add_photos?
-    true # security check required 
+    (user.referee || user.admin)
   end
 
   def overdue?
