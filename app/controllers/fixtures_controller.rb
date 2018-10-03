@@ -14,6 +14,7 @@ class FixturesController < ApplicationController
 
   def show
     @fixture = Fixture.find(params[:id])
+    @fixture_photos = @fixture.fixture_photos
     authorize @fixture
   end
 
