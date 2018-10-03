@@ -4,4 +4,6 @@ class FixturePhotoPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  
 end
