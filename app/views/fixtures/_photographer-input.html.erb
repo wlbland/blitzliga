@@ -1,1 +1,5 @@
-<%= link_to " Add # #{fixture.id} Photos ", add_fixture_photos_path(fixture) %>
+<% if fixture.has_photos? %>
+	<span class="font-weight-light"> <%= link_to " Add Extra Photos ", add_fixture_photos_path(fixture) %> </span>
+<% else %>
+	<strong> <%= link_to "* Add First Photos *", add_fixture_photos_path(fixture) %> </strong>
+<% end %>

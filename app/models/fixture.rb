@@ -69,4 +69,8 @@ class Fixture < ApplicationRecord
     @fixtures = Fixture.future
   end
 
+  def has_photos?
+    fixture_photos.exists?
+  end
+
 end
