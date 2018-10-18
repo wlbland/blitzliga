@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   root 'fixtures#next'
-  get "fixtures/:id/add_photos", to: "fixtures#add_photos"
+  get "fixtures/:id/add_photos", to: "fixtures#add_photos", as: "add_fixture_photos"
   patch "fixtures/:id/add_photos", to: "fixtures#add_photos", as: "add"
 
   resources :fixture_photos, only: [:show, :index]

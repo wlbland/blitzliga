@@ -16,7 +16,7 @@ class FixturePolicy < ApplicationPolicy
   end
 
   def add_photos?
-    (user.photographer || user.admin)
+    (user.photographer || user.admin) && record.time < Time.now
   end
 
   def overdue?
