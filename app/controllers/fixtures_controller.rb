@@ -77,6 +77,7 @@ class FixturesController < ApplicationController
 
   def next
     @fixtures = Fixture.future.next.valid.order(time: :asc)
+    @fixture_photos = FixturePhoto.last(20)
   end
 
   def overdue
