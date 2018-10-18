@@ -1,0 +1,17 @@
+<div class="container">
+  <% @fixture_photos.in_groups_of(4) do |photos| %>
+    <div class="row">
+      <% photos.each do |photo| %>
+        <div class="col-md-3">
+          <%  if photo&.photo %>
+            <div class="photo_card" style="background-image: url(<%= cl_image_path photo.photo, height: 400, width: 400, crop: :fit, alt: "Photo not displaying" %>)">
+            <%= link_to "<>", fixture_photo_path(photo) %>
+          <% end %>
+            <%#= cl_image_tag photo.photo, height: 400, width: 400, crop: :scale, alt: "Photo not displaying" if photo&.photo %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+hello
