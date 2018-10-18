@@ -6,7 +6,7 @@ class FixturePhotosController < ApplicationController
 
 
   def index
-    @photos = policy_scope(FixturePhoto)
+    @photos = policy_scope(FixturePhoto).order(created_at: :desc)
   end
 
   def show
