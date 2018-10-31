@@ -23,8 +23,7 @@ s24 = Season.find_by(number: 24)
 
 
  scheduled_matches =
-[ 
-{team_1: winner_1, team_2: winner_2, time: DateTime.new(2018,11,11,12,0,0,'+03:00'), venue: venue_tbc, season: s23, non_league: true}
+[ {team_1: winner_1, team_2: winner_2, time: DateTime.new(2018,11,11,12,0,0,'+03:00'), venue: venue_tbc, season: s23, non_league: true},
 
 {team_1: cavalry, team_2: vverkh, time: DateTime.new(2018,11,11,12,0,0,'+03:00'), venue: evropa, season: s24},
 {team_1: coalition, team_2: vverkh, time: DateTime.new(2018,11,11,13,0,0,'+03:00'), venue: evropa, season: s24},
@@ -38,7 +37,7 @@ s24 = Season.find_by(number: 24)
 {team_1: unsanctionables, team_2: coalition, time: DateTime.new(2018,11,25,12,0,0,'+03:00'), venue: evropa, season: s24},
 {team_1: galactics, team_2: happy_sundays, time: DateTime.new(2018,11,25,13,0,0,'+03:00'), venue: evropa, season: s24},
 {team_1: cavalry, team_2: red_star, time: DateTime.new(2018,11,25,14,0,0,'+03:00'), venue: evropa, season: s24},
-{
+
 
 {team_1: red_star, team_2: galactics, time: DateTime.new(2018,12,2,12,0,0,'+03:00'), venue: evropa, season: s24},
 {team_1: happy_sundays, team_2: vverkh, time: DateTime.new(2018,12,2,13,0,0,'+03:00'), venue: evropa, season: s24},
@@ -53,7 +52,7 @@ s24 = Season.find_by(number: 24)
 
 {team_1: coalition, team_2: red_star, time: DateTime.new(2018,12,16,12,0,0,'+03:00'), venue: evropa, season: s24},
 {team_1: unsanctionables, team_2: happy_sundays, time: DateTime.new(2018,12,16,13,0,0,'+03:00'), venue: evropa, season: s24},
-{team_1: red_star, team_2: happy_sundays, time: DateTime.new(2018,12,16,14,0,0,'+03:00'), venue: evropa, season: s24}
+{team_1: red_star, team_2: happy_sundays, time: DateTime.new(2018,12,16,14,0,0,'+03:00'), venue: evropa, season: s24},
 
 {team_1: a_team, team_2: d_team, time: DateTime.new(2019,1,20,11,0,0,'+03:00'), venue: venue_tbc, season: s24, non_league: true},
 {team_1: b_team, team_2: c_team, time: DateTime.new(2019,1,20,11,0,0,'+03:00'), venue: venue_tbc, season: s24, non_league: true},
