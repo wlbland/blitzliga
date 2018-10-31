@@ -1,6 +1,4 @@
-evropa = Venue.find_by(name: "Evropa")
 
-s24 = Season.create(number: 24)
 
 coalition = Team.find_by(name: "Coalition")
 vverkh = Team.find_by(name: "Vverkh")
@@ -17,25 +15,16 @@ c_team = Team.find_by(name: "3rd Placed")
 d_team = Team.find_by(name: "4th Placed")
 
 evropa = Venue.find_by(name: "Evropa")
+luzhniki = Venue.find_by(name: "Luzhniki", pitch: "6")
 venue_tbc = Venue.create(name: "TBC", pitch: "X")
 
+s23 = Season.find_by(number: 23)
+s24 = Season.find_by(number: 24)
 
-s24 = Season.create(number: 24)
 
  scheduled_matches =
-[ {team_1: coalition, team_2: happy_sundays, time: DateTime.new(2018,11,11,12,0,0,'+03:00'), venue: evropa, season: s24},
-{team_1: cavalry, team_2: unsanctionables, time: DateTime.new(2018,11,11,13,0,0,'+03:00'), venue: evropa, season: s24}]
-
-
-team_1: coalition, team_2: happy_sundays
-team_1: coalition, team_2: happy_sundays
-team_1: coalition, team_2: happy_sundays
-team_1: coalition, team_2: happy_sundays
-team_1: coalition, team_2: happy_sundays
-team_1: coalition, team_2: happy_sundays
-team_1: coalition, team_2: happy_sundays
-
-
+[ 
+{team_1: winner_1, team_2: winner_2, time: DateTime.new(2018,11,11,12,0,0,'+03:00'), venue: venue_tbc, season: s23, non_league: true}
 
 {team_1: cavalry, team_2: vverkh, time: DateTime.new(2018,11,11,12,0,0,'+03:00'), venue: evropa, season: s24},
 {team_1: coalition, team_2: vverkh, time: DateTime.new(2018,11,11,13,0,0,'+03:00'), venue: evropa, season: s24},
