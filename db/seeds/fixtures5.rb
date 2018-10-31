@@ -25,6 +25,9 @@ s24 = Season.create(number: 24)
 [ {team_1: coalition, team_2: happy_sundays, time: DateTime.new(2018,10,27,12,0,0,'+03:00'), venue: evropa, season: s24},
 {team_1: cavalry, team_2: unsanctionables, time: DateTime.new(2018,10,27,13,0,0,'+03:00'), venue: evropa, season: s24}]
 
+
+
+
 scheduled_matches.each do |match|
   if match[:non_league]
     new_fixture = Fixture.create(time: match[:time], venue: match[:venue], season: match[:season], non_league: true)
