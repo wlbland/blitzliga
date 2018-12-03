@@ -78,10 +78,10 @@ class FixturesController < ApplicationController
   def next
     @fixtures = Fixture.future.next.valid.order(time: :asc)
     # @fixture_photos = FixturePhoto.last(20)
-    @fixture_photos = []
+    @fixture_photo_ids = []
     Fixture.past.each do |fixture|
-      unless fixture.fixture_photos == []
-        @fixture_photos << fixture.fixture_photos.last(2)
+      if fixture.fixture_photos[0] && fixture.fixture_photos[1]
+        @fixture_photo_ids.push(fixture.fixture_photos[0].id, fixture.fixture_photos[1].id)
       end
     end
   end
