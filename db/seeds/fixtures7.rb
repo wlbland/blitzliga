@@ -24,11 +24,11 @@ s25 = Season.find_by(number: 25)
  scheduled_matches =
 [ 
 {team_1: cavalry, team_2: unsanctionables, time: DateTime.new(2019,02,10,12,0,0,'+03:00'), venue: evropa, season: s25},
-{team_1: red star, team_2:  happy_sundays, time: DateTime.new(2019,02,10,13,0,0,'+03:00'), venue: evropa, season: s25},
+{team_1: red_star, team_2:  happy_sundays, time: DateTime.new(2019,02,10,13,0,0,'+03:00'), venue: evropa, season: s25},
 {team_1: coalition, team_2: moscow_rebels, time: DateTime.new(2019,02,10,14,0,0,'+03:00'), venue: evropa, season: s25},
 
 {team_1: happy_sundays, team_2: coalition, time: DateTime.new(2019,02,17,12,0,0,'+03:00'), venue: evropa, season: s25},
-{team_1: unsanctionables, team_2: red star, time: DateTime.new(2019,02,17,12,0,0,'+03:00'), venue: evropa, season: s25},
+{team_1: unsanctionables, team_2: red_star, time: DateTime.new(2019,02,17,12,0,0,'+03:00'), venue: evropa, season: s25},
 {team_1: galactics, team_2: cavalry, time: DateTime.new(2019,02,17,12,0,0,'+03:00'), venue: evropa, season: s25},
 
 {team_1: coalition, team_2: cavalry, time: DateTime.new(2019,02,24,12,0,0,'+03:00'), venue: evropa, season: s25},
